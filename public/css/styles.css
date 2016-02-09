@@ -1,0 +1,26 @@
+
+.title {
+  flex: 0 0 100%;
+}
+
+.navButtons {
+
+}
+
+.todo {
+  height: 100px;
+  width: 200px;
+  border: 1px solid red;
+}
+
+.inProgress {
+  height: 100px;
+  width: 200px;
+  border: 1px solid blue;
+}
+
+.completed {
+  height: 100px;
+  width: 200px;
+  border: 1px solid yellow;
+}
