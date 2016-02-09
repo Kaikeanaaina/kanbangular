@@ -57,10 +57,13 @@
       console.log(todo);
       if(todo.status==='toDo'){
         todo.status='inProgress';
+        return todo;
       }
 
       if(todo.status==='inProgress'){
         todo.status='done';
+        return todo;
+
       }
 
       if(todo.status==='done'){
