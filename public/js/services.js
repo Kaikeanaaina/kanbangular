@@ -52,6 +52,26 @@
 
     };
 
+    this.changeStatus = function(todo){
+      console.log('changing');
+      console.log(todo);
+      if(todo.status==='toDo'){
+        todo.status='inProgress';
+      }
+
+      if(todo.status==='inProgress'){
+        todo.status='done';
+      }
+
+      if(todo.status==='done'){
+        //delete this shit
+      }
+    };
+
+    // this.deleteToDo(todo){
+    //   .getToDo(todo.id)
+    // }
+
   }
 
   angular.module('myApp')
