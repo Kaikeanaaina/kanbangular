@@ -39,9 +39,10 @@
       <h4 class="todo_prioritySelection">Priority: {{todo.prioritySelection}}</h4>
       <h4 class="todo_created_By">Created By: {{todo.created_By}}</h4>
       <h4 class="todo_assigned_To">Assigned To: {{todo.assigned_To}}</h4>
-      <div class="rightButton">
-
-      <button type="button" ng-click="toDoService.changeStatus(todo);"> ==> </button>
+      <div class="moveButtons">
+        <div class="rightButton">
+          <button type="button" ng-click="toDoService.changeStatus(todo);"> ==> </button>
+        </div>
       </div>
     </div>
   </div>
@@ -52,8 +53,13 @@
       <h4 class="todo_prioritySelection">Priority: {{todo.prioritySelection}}</h4>
       <h4 class="todo_created_By">Created By: {{todo.created_By}}</h4>
       <h4 class="todo_assigned_To">Assigned To: {{todo.assigned_To}}</h4>
-      <div class="rightButton">
-        <button type="button" ng-click="toDoService.changeStatus(todo);"> ==> </button>
+      <div class="moveButtons">
+        <div class="leftButton">
+          <button type="button" ng-click="toDoService.reverseStatusChange(todo);"> <== </button>
+        </div>
+        <div class="rightButton">
+          <button type="button" ng-click="toDoService.changeStatus(todo);"> ==> </button>
+        </div>
       </div>
     </div>
   </div>
@@ -64,8 +70,13 @@
       <h4 class="todo_prioritySelection">Priority: {{todo.prioritySelection}}</h4>
       <h4 class="todo_created_By">Created By: {{todo.created_By}}</h4>
       <h4 class="todo_assigned_To">Assigned To: {{todo.assigned_To}}</h4>
-      <div class="rightButton">
-        <button type="button" ng-click="toDoService.changeStatus(todo);"> ==> </button></div>
-    </div>
+      <div class="moveButtons">
+        <div class="leftButton">
+          <button type="button" ng-click="toDoService.reverseStatusChange(todo);"> <== </button>
+        </div>
+        <div class="rightButton">
+          <button type="button" ng-click="toDoService.changeStatus(todo);"> Done </button>
+        </div>
+      </div>
   </div>
 </div>

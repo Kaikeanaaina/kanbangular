@@ -71,6 +71,21 @@
       }
     };
 
+    this.reverseStatusChange = function(todo){
+      console.log('changing');
+      console.log(todo);
+      if(todo.status==='inProgress'){
+        todo.status='toDo';
+        return todo;
+      }
+
+      if(todo.status==='done'){
+        todo.status='inProgress';
+        return todo;
+
+      }
+    };
+
     // this.deleteToDo(todo){
     //   .getToDo(todo.id)
     // }
