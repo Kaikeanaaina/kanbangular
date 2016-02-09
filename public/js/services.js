@@ -9,7 +9,8 @@
         title: 'first',
         prioritySelection: 'low',
         status:'toDo',
-        created_By: 'Kai'
+        created_By: 'Kai',
+        assigned_To: 'Kai'
       },
       {
         id: 2,
@@ -17,6 +18,7 @@
         prioritySelection: 'medium',
         status:'done',
         created_By: 'Chaz',
+        assigned_To: 'Charles'
       }
     ];
 
