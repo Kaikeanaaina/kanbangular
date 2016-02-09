@@ -12,10 +12,10 @@
   flex-flow: row wrap;
   height: 600px;
   width: 900px;
-  background-color: gray;
+  border: 2px dashed orange;
 }
 
-.todo {
+.todoColumn {
   height: 100%;
   flex: 0 0 32%;
   border: 1px solid red;
@@ -31,4 +31,11 @@
   height: 100%;
   flex: 0 0 32%;
   border: 1px solid green;
+}
+
+.testCard {
+  height: auto;
+  width: auto;
+  margin-top: 5px;
+  border: 2px solid purple;
 }
