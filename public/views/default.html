@@ -1,56 +1,76 @@
 <div class="title">This is our title</div>
 
-<div class="navButtons">Here's where our nav buttons go</div>
+<div class="createNewToDo">
+  <fieldset>
 
+  <div>
+    <label for="new_task_title">Title</label>
+    <input id="new_task_title" type="text" ng-model='new_todo.title'>
+  </div>
 
+  <div>
+    <label for="new_task_priority">Priority</label>
+    <input id="new_task_priority" type="text" ng-model='new_todo.prioritySelection'>
+  </div>
 
+  <div>
+    <label for="new_task_created">Created By</label>
+    <input id="new_task_created" type="text" ng-model='new_todo.createdBy'>
+  </div>
 
-<div class="todo">
+  <div>
+    <label for="new_task_assigned">Assigned To</label>
+    <input id="new_task_assigned" type="text" ng-model='new_todo.assignedTo'>
+  </div>
 
-ToDo Status
+  <div class="commit">
+    <button type='button' ng-click='toDoService.addToDos(new_todo); new_todo = null'>Add Task</button>
+  </div>
 
-  <ul class="todos">
-    <li ng-repeat="todo in toDoService.todos | filter:todo.status='toDo'" >
-      <h4 class="todo_title">
-        {{todo.title}}
-      </h4>
-      <p class="todo_created_By">{{todo.created_By}}</p>
-    </li>
-  </ul>
-
+  </fieldset>
 </div>
 
 
 
+<div class="mainKanbanBoard">
+  <div class="todo">
+  ToDo Status
 
+    <ul class="todos">
+      <li ng-repeat="todo in toDoService.todos | filter:todo.status='toDo'" >
+        <h4 class="todo_title">
+          {{todo.title}}
+        </h4>
+        <p class="todo_created_By">{{todo.created_By}}</p>
+      </li>
+    </ul>
 
+  </div>
 
-<div class="inProgress">
-In Progress Status
+  <div class="inProgress">
+  In Progress Status
 
-  <ul class="todos">
-    <li ng-repeat="todo in toDoService.todos | filter:todo.status='inProgress'" >
-      <h4 class="todo_title">
-        {{todo.title}}
-      </h4>
-      <p class="todo_created_By">{{todo.created_By}}</p>
-    </li>
-  </ul>
+    <ul class="todos">
+      <li ng-repeat="todo in toDoService.todos | filter:todo.status='inProgress'" >
+        <h4 class="todo_title">
+          {{todo.title}}
+        </h4>
+        <p class="todo_created_By">{{todo.created_By}}</p>
+      </li>
+    </ul>
 
-</div>
+  </div>
 
+  <div class="completed">
+  Completed Status
+    <ul class="todos">
+      <li ng-repeat="todo in toDoService.todos | filter:todo.status='done'" >
+        <h4 class="todo_title">
+          {{todo.title}}
+        </h4>
+        <p class="todo_created_By">{{todo.created_By}}</p>
+      </li>
+    </ul>
 
-
-
-<div class="completed">
-Completed Status
-  <ul class="todos">
-    <li ng-repeat="todo in toDoService.todos | filter:todo.status='done'" >
-      <h4 class="todo_title">
-        {{todo.title}}
-      </h4>
-      <p class="todo_created_By">{{todo.created_By}}</p>
-    </li>
-  </ul>
-
+  </div>
 </div>
