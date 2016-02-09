@@ -10,7 +10,7 @@
 ToDo Status
 
   <ul class="todos">
-    <li ng-repeat="todo in toDoService.todos" >
+    <li ng-repeat="todo in toDoService.todos | filter:todo.status='toDo'" >
       <h4 class="todo_title">
         {{todo.title}}
       </h4>
@@ -25,6 +25,32 @@ ToDo Status
 
 
 
-<div class="inProgress">In Progress Status</div>
+<div class="inProgress">
+In Progress Status
 
-<div class="completed">Completed Status</div>
+  <ul class="todos">
+    <li ng-repeat="todo in toDoService.todos | filter:todo.status='inProgress'" >
+      <h4 class="todo_title">
+        {{todo.title}}
+      </h4>
+      <p class="todo_created_By">{{todo.created_By}}</p>
+    </li>
+  </ul>
+
+</div>
+
+
+
+
+<div class="completed">
+Completed Status
+  <ul class="todos">
+    <li ng-repeat="todo in toDoService.todos | filter:todo.status='done'" >
+      <h4 class="todo_title">
+        {{todo.title}}
+      </h4>
+      <p class="todo_created_By">{{todo.created_By}}</p>
+    </li>
+  </ul>
+
+</div>
