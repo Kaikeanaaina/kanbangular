@@ -35,17 +35,19 @@
     };
 
     this.addToDos = function(todo){
-      console.log(todo);
       var nextId = this.todos.length+1;
       todo.id = nextId;
-      this.todos.push({
+      var new_todo ={
         id: nextId,
         title: todo.title,
         prioritySelection: todo.prioritySelection,
         status: 'toDo',
         created_By: todo.createdBy,
         assigned_To : todo.assignedTo
-      });
+      }
+
+      this.todos.push(new_todo);
+
     };
 
   }
