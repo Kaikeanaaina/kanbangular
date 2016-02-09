@@ -13,6 +13,7 @@ myApp
 
     $routeProvider
       .when('/', {
-        templateUrl : 'views/default.html'
+        templateUrl : 'views/default.html',
+        controller : 'ToDosController'
       });
 }]);
