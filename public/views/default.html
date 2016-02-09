@@ -33,44 +33,33 @@
 
 
 <div class="mainKanbanBoard">
-  <div class="todo">
-  ToDo Status
-
-    <ul class="todos">
-      <li ng-repeat="todo in toDoService.todos | filter:todo.status='toDo'" >
-        <h4 class="todo_title">
-          {{todo.title}}
-        </h4>
-        <p class="todo_created_By">{{todo.created_By}}</p>
-      </li>
-    </ul>
-
+  <div class="todoColumn">ToDo Status Column
+    <div ng-repeat="todo in toDoService.todos | filter:todo.status='toDo'" class="testCard todos">
+      <h2 class="todo_title">{{todo.title}}</h2>
+      <h4 class="todo_prioritySelection">Priority: {{todo.prioritySelection}}</h4>
+      <h4 class="todo_created_By">Created By: {{todo.created_By}}</h4>
+      <h4 class="todo_assigned_To">Assigned To: {{todo.assigned_To}}</h4>
+      <div class="rightButton">==></div>
+    </div>
   </div>
 
-  <div class="inProgress">
-  In Progress Status
-
-    <ul class="todos">
-      <li ng-repeat="todo in toDoService.todos | filter:todo.status='inProgress'" >
-        <h4 class="todo_title">
-          {{todo.title}}
-        </h4>
-        <p class="todo_created_By">{{todo.created_By}}</p>
-      </li>
-    </ul>
-
+  <div class="inProgress">In Progress Status
+    <div ng-repeat="todo in toDoService.todos | filter:todo.status='inProgress'" class="testCard todos">
+      <h2 class="todo_title">{{todo.title}}</h2>
+      <h4 class="todo_prioritySelection">Priority: {{todo.prioritySelection}}</h4>
+      <h4 class="todo_created_By">Created By: {{todo.created_By}}</h4>
+      <h4 class="todo_assigned_To">Assigned To: {{todo.assigned_To}}</h4>
+      <div class="rightButton">==></div>
+    </div>
   </div>
 
-  <div class="completed">
-  Completed Status
-    <ul class="todos">
-      <li ng-repeat="todo in toDoService.todos | filter:todo.status='done'" >
-        <h4 class="todo_title">
-          {{todo.title}}
-        </h4>
-        <p class="todo_created_By">{{todo.created_By}}</p>
-      </li>
-    </ul>
-
+  <div class="completed">Completed Status
+    <div ng-repeat="todo in toDoService.todos | filter:todo.status='done'" class="testCard todos">
+      <h2 class="todo_title">{{todo.title}}</h2>
+      <h4 class="todo_prioritySelection">Priority: {{todo.prioritySelection}}</h4>
+      <h4 class="todo_created_By">Created By: {{todo.created_By}}</h4>
+      <h4 class="todo_assigned_To">Assigned To: {{todo.assigned_To}}</h4>
+      <div class="rightButton">==></div>
+    </div>
   </div>
 </div>
