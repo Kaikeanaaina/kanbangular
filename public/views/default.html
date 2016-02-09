@@ -2,7 +2,28 @@
 
 <div class="navButtons">Here's where our nav buttons go</div>
 
-<div class="todo">ToDo Status</div>
+
+
+
+<div class="todo">
+
+ToDo Status
+
+  <ul class="todos">
+    <li ng-repeat="todo in toDoService.todos" >
+      <h4 class="todo_title">
+        {{todo.title}}
+      </h4>
+      <p class="todo_created_By">{{todo.created_By}}</p>
+    </li>
+  </ul>
+
+</div>
+
+
+
+
+
 
 <div class="inProgress">In Progress Status</div>
 
