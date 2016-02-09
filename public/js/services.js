@@ -15,8 +15,8 @@
         id: 2,
         title: 'second',
         prioritySelection: 'medium',
-        status:'toDo',
-        created_By: 'Kai',
+        status:'done',
+        created_By: 'Chaz',
       }
     ];
 
@@ -31,21 +31,22 @@
       })
       .reduce(function(_,todo){
         return todo;
-      })
+      });
     };
 
     this.addToDos = function(todo){
       console.log(todo);
       var nextId = this.todos.length+1;
       todo.id = nextId;
-      this.books.push({
+      this.todos.push({
         id: nextId,
         title: todo.title,
         prioritySelection: todo.prioritySelection,
         status: 'toDo',
-        created_By: 'kai',
+        created_By: todo.createdBy,
+        assigned_To : todo.assignedTo
       });
-    }
+    };
 
   }
 
