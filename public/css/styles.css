@@ -15,27 +15,48 @@
   border: 2px dashed orange;
 }
 
+.testCard {
+  height: auto;
+  width: auto;
+  margin-top: 5px;
+  border: 2px solid purple;
+}
+
+.todo_title {
+  margin: 1px;
+}
+
+.todo_prioritySelection {
+  margin: 1px;
+}
+
+.todo_created_By {
+  margin: 1px;
+}
+
+.rightButton {
+  align: right;
+  border: 1px solid brown;
+}
+
+.todo_assigned_To {
+  margin: 1px;
+}
+
 .todoColumn {
   height: 100%;
   flex: 0 0 32%;
   border: 1px solid red;
 }
 
-.inProgress {
+.inProgressColumn {
   height: 100%;
   flex: 0 0 32%;
   border: 1px solid blue;
 }
 
-.completed {
+.completedColumn {
   height: 100%;
   flex: 0 0 32%;
   border: 1px solid green;
-}
-
-.testCard {
-  height: auto;
-  width: auto;
-  margin-top: 5px;
-  border: 2px solid purple;
 }
