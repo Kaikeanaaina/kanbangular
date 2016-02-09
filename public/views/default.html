@@ -41,7 +41,7 @@
       <h4 class="todo_assigned_To">Assigned To: {{todo.assigned_To}}</h4>
       <div class="rightButton">
 
-      <button type="button" ng-click="toDoService.changeStatus(the_todo); the_todo = todo;"> ==> </button>
+      <button type="button" ng-click="toDoService.changeStatus(todo);"> ==> </button>
       </div>
     </div>
   </div>
@@ -52,7 +52,9 @@
       <h4 class="todo_prioritySelection">Priority: {{todo.prioritySelection}}</h4>
       <h4 class="todo_created_By">Created By: {{todo.created_By}}</h4>
       <h4 class="todo_assigned_To">Assigned To: {{todo.assigned_To}}</h4>
-      <div class="rightButton">==></div>
+      <div class="rightButton">
+        <button type="button" ng-click="toDoService.changeStatus(todo);"> ==> </button>
+      </div>
     </div>
   </div>
 
@@ -62,7 +64,8 @@
       <h4 class="todo_prioritySelection">Priority: {{todo.prioritySelection}}</h4>
       <h4 class="todo_created_By">Created By: {{todo.created_By}}</h4>
       <h4 class="todo_assigned_To">Assigned To: {{todo.assigned_To}}</h4>
-      <div class="rightButton">==></div>
+      <div class="rightButton">
+        <button type="button" ng-click="toDoService.changeStatus(todo);"> ==> </button></div>
     </div>
   </div>
 </div>
