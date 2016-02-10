@@ -38,7 +38,7 @@
 <div class="mainKanbanBoard">
 
   <div class="todoColumn">ToDo Status Column
-    <div ng-repeat="todo in toDoService.todos | filter:todo.status='toDo'" class="testCard" id="todoCard">
+    <div ng-repeat="todo in tasks | filter:todo.status='toDo'" class="testCard" id="todoCard">
       <div class="content">
         <h2 class="todo_title">{{todo.title}}</h2>
         <h4 class="todo_prioritySelection">Priority: {{todo.prioritySelection}}</h4>
@@ -54,7 +54,7 @@
   </div>
 
   <div class="inProgressColumn">In Progress Status
-    <div ng-repeat="todo in toDoService.todos | filter:todo.status='inProgress'" class="testCard" id="inProgressCard">
+    <div ng-repeat="todo in tasks | filter:todo.status='inProgress'" class="testCard" id="inProgressCard">
       <div class="content">
         <h2 class="todo_title">{{todo.title}}</h2>
         <h4 class="todo_prioritySelection">Priority: {{todo.prioritySelection}}</h4>
@@ -71,7 +71,7 @@
   </div>
 
   <div class="completedColumn">Completed Status
-    <div ng-repeat="todo in toDoService.todos | filter:todo.status='done'" class="testCard" id="doneCard">
+    <div ng-repeat="todo in tasks | filter:todo.status='done'" class="testCard" id="doneCard">
       <div class="content">
         <h2 class="todo_title">{{todo.title}}</h2>
         <h4 class="todo_prioritySelection">Priority: {{todo.prioritySelection}}</h4>
