@@ -32,7 +32,7 @@ app.get( '/api/tasks', function ( req, res ) {
 app.post( '/api/tasks', function ( req, res ) {
   req.body.id = tasks.length+1;
   tasks.push( req.body );
-  res.json( tasks );
+  res.json( req.body );
 });
 
 
