@@ -3,6 +3,10 @@
   flex: 0 0 100%;
 }
 
+.title h1{
+  text-align: center;
+}
+
 .createNewToDo {
 
 }
