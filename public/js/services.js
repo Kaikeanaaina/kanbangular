@@ -18,6 +18,11 @@ angular.module('myApp')
       return $http.post('http://localhost:3000/api/tasks', new_todo);
     };
 
+    this.deleteToDo = function(todo){
+      console.log('22222222');
+      return $http.delete('http://localhost:3000/api/tasks/'+todo.id);
+    }
+
     this.changeStatus = function(todo){
       console.log('changing');
       console.log(todo);
@@ -29,10 +34,6 @@ angular.module('myApp')
       if(todo.status==='inProgress'){
         todo.status='done';
         return todo;
-      }
-
-      if(todo.status==='done'){
-        //delete this shit
       }
     };
 
@@ -51,8 +52,5 @@ angular.module('myApp')
       }
     };
 
-    // this.deleteToDo(todo){
-    //   .getToDo(todo.id)
-    // }
 
   }]);

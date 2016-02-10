@@ -17,4 +17,14 @@ angular.module('myApp')
       });
   };
 
+  $scope.deleteThis=function(this_task){
+    console.log('11111111');
+    toDoService.deleteToDo( this_task)
+        .success( function (res){
+         console.log(res);
+        // $scope.tasks.splice
+        })
+
+  }
+
 }]);

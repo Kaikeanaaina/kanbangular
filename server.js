@@ -35,6 +35,11 @@ app.post( '/api/tasks', function ( req, res ) {
   res.json( req.body );
 });
 
+app.delete( '/api/tasks/:id', function( req, res){
+  var deletedOne = tasks.splice(req.params.id-1,1);
+  res.json( deletedOne);
+})
+
 
 app.listen(3000,function(){
   console.log('CONNECTED');
