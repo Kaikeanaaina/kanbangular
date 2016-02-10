@@ -22,7 +22,12 @@ angular.module('myApp')
     toDoService.deleteToDo( this_task)
         .success( function (res){
          console.log(res);
-        // $scope.tasks.splice
+        var find = $scope.tasks.filter(function(task){
+          return task.id === res;
+        });
+
+         $scope.tasks.splice(find["0"].id-1,1);
+
         })
 
   }
