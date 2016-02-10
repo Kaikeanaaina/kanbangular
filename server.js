@@ -36,8 +36,9 @@ app.post( '/api/tasks', function ( req, res ) {
 });
 
 app.delete( '/api/tasks/:id', function( req, res){
-  var deletedOne = tasks.splice(req.params.id-1,1);
-  res.json( deletedOne);
+  deletedOne = tasks.splice(req.params.id-1,1);
+  console.log(deletedOne["0"].id);
+  res.json( deletedOne["0"].id);
 })
 
 
