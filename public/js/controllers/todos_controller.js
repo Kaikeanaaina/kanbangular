@@ -10,12 +10,10 @@ angular.module('myApp')
       $scope.tasks = data;
     });
 
-  $scope.addTodos=function(new_todo) {
-    console.log('8===D{()}');
-    toDoService.addTodos( todo )
-      .success( function ( response ) {
-        console.log(response);
-        $scope.tasks.push( todo );
+  $scope.postTodo=function(new_todo) {
+    toDoService.addTodos( new_todo )
+      .success( function ( res ) {
+        $scope.tasks.push( res );
       });
   };
 
