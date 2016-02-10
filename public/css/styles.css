@@ -21,8 +21,8 @@
 .mainKanbanBoard {
   display: flex;
   flex-flow: row wrap;
-  height: 600px;
-  width: 900px;
+  height: 800px;
+  width: 100%;
   border: 2px dashed orange;
 }
 
@@ -72,21 +72,21 @@
 
 .todoColumn {
   height: 100%;
-  flex: 0 0 32%;
+  flex: 0 0 32.5%;
   border: 1px solid red;
   background-color: rgba(255,0,0,0.3);
 }
 
 .inProgressColumn {
   height: 100%;
-  flex: 0 0 32%;
+  flex: 0 0 32.5%;
   border: 1px solid blue;
   background-color: rgba(0,0,255,0.3);
 }
 
 .completedColumn {
   height: 100%;
-  flex: 0 0 32%;
+  flex: 0 0 32.5%;
   border: 1px solid green;
   background-color: rgba(0,255,0,0.3);
 }
