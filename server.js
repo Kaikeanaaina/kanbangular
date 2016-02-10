@@ -1,6 +1,10 @@
 var express = require('express');
 var app = express();
+var session = require('express-session');
 var bodyParser = require('body-parser');
+var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
+var loggedInChecker = false;
 
 app.use( express.static( './public' ));
 
