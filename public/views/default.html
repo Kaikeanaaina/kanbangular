@@ -33,49 +33,52 @@
 
 
 <div class="mainKanbanBoard">
+
   <div class="todoColumn">ToDo Status Column
-    <div ng-repeat="todo in toDoService.todos | filter:todo.status='toDo'" class="testCard">
-      <h2 class="todo_title">{{todo.title}}</h2>
-      <h4 class="todo_prioritySelection">Priority: {{todo.prioritySelection}}</h4>
-      <h4 class="todo_created_By">Created By: {{todo.created_By}}</h4>
-      <h4 class="todo_assigned_To">Assigned To: {{todo.assigned_To}}</h4>
-      <div class="moveButtons">
-        <div class="rightButton">
-          <button type="button" ng-click="toDoService.changeStatus(todo);"> ==> </button>
+    <div ng-repeat="todo in toDoService.todos | filter:todo.status='toDo'" class="testCard" id="todoCard">
+      <div class="content">
+        <h2 class="todo_title">{{todo.title}}</h2>
+        <h4 class="todo_prioritySelection">Priority: {{todo.prioritySelection}}</h4>
+        <h4 class="todo_created_By">Created By: {{todo.created_By}}</h4>
+        <h4 class="todo_assigned_To">Assigned To: {{todo.assigned_To}}</h4>
+        <div class="moveButtons">
+          <div class="rightButton">
+            <button type="button" ng-click="toDoService.changeStatus(todo);"> Start </button>
+          </div>
         </div>
       </div>
     </div>
   </div>
 
   <div class="inProgressColumn">In Progress Status
-    <div ng-repeat="todo in toDoService.todos | filter:todo.status='inProgress'" class="testCard">
-      <h2 class="todo_title">{{todo.title}}</h2>
-      <h4 class="todo_prioritySelection">Priority: {{todo.prioritySelection}}</h4>
-      <h4 class="todo_created_By">Created By: {{todo.created_By}}</h4>
-      <h4 class="todo_assigned_To">Assigned To: {{todo.assigned_To}}</h4>
-      <div class="moveButtons">
-        <div class="leftButton">
-          <button type="button" ng-click="toDoService.reverseStatusChange(todo);"> <== </button>
-        </div>
-        <div class="rightButton">
-          <button type="button" ng-click="toDoService.changeStatus(todo);"> ==> </button>
+    <div ng-repeat="todo in toDoService.todos | filter:todo.status='inProgress'" class="testCard" id="inProgressCard">
+      <div class="content">
+        <h2 class="todo_title">{{todo.title}}</h2>
+        <h4 class="todo_prioritySelection">Priority: {{todo.prioritySelection}}</h4>
+        <h4 class="todo_created_By">Created By: {{todo.created_By}}</h4>
+        <h4 class="todo_assigned_To">Assigned To: {{todo.assigned_To}}</h4>
+        <div class="moveButtons">
+          <div class="rightButton">
+            <button type="button" ng-click="toDoService.reverseStatusChange(todo);"> <~~ </button>
+            <button type="button" ng-click="toDoService.changeStatus(todo);"> Complete </button>
+          </div>
         </div>
       </div>
     </div>
   </div>
 
   <div class="completedColumn">Completed Status
-    <div ng-repeat="todo in toDoService.todos | filter:todo.status='done'" class="testCard">
-      <h2 class="todo_title">{{todo.title}}</h2>
-      <h4 class="todo_prioritySelection">Priority: {{todo.prioritySelection}}</h4>
-      <h4 class="todo_created_By">Created By: {{todo.created_By}}</h4>
-      <h4 class="todo_assigned_To">Assigned To: {{todo.assigned_To}}</h4>
-      <div class="moveButtons">
-        <div class="leftButton">
-          <button type="button" ng-click="toDoService.reverseStatusChange(todo);"> <== </button>
-        </div>
-        <div class="rightButton">
-          <button type="button" ng-click="toDoService.changeStatus(todo);"> Done </button>
+    <div ng-repeat="todo in toDoService.todos | filter:todo.status='done'" class="testCard" id="doneCard">
+      <div class="content">
+        <h2 class="todo_title">{{todo.title}}</h2>
+        <h4 class="todo_prioritySelection">Priority: {{todo.prioritySelection}}</h4>
+        <h4 class="todo_created_By">Created By: {{todo.created_By}}</h4>
+        <h4 class="todo_assigned_To">Assigned To: {{todo.assigned_To}}</h4>
+        <div class="moveButtons">
+          <div class="rightButton">
+            <button type="button" ng-click="toDoService.reverseStatusChange(todo);"> <==8 </button>
+            <button type="button" ng-click="toDoService.changeStatus(todo);"> Done </button>
+          </div>
         </div>
       </div>
   </div>

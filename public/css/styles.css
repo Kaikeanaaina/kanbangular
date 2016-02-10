@@ -7,6 +7,13 @@
 
 }
 
+.content{
+  margin: 5px;
+  margin-bottom: 5px;
+}
+
+
+
 .mainKanbanBoard {
   display: flex;
   flex-flow: row wrap;
@@ -19,7 +26,23 @@
   height: auto;
   width: auto;
   margin-top: 5px;
+  margin-left: 5px;
+  margin-right:5px;
+}
+
+#todoCard {
   border: 2px solid purple;
+  background-color: white;
+}
+
+#inProgressCard{
+  border: 2px solid blue;
+  background-color: white;
+}
+
+#doneCard{
+  border: 2px solid green;
+  background-color: white;
 }
 
 .todo_title {
@@ -47,16 +70,19 @@
   height: 100%;
   flex: 0 0 32%;
   border: 1px solid red;
+  background-color: rgba(255,0,0,0.3);
 }
 
 .inProgressColumn {
   height: 100%;
   flex: 0 0 32%;
   border: 1px solid blue;
+  background-color: rgba(0,0,255,0.3);
 }
 
 .completedColumn {
   height: 100%;
   flex: 0 0 32%;
   border: 1px solid green;
+  background-color: rgba(0,255,0,0.3);
 }
