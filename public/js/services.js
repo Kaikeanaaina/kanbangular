@@ -17,62 +17,42 @@ angular.module('myApp')
       };
       return $http.post('http://localhost:3000/api/tasks', new_todo);
     };
+
+    this.changeStatus = function(todo){
+      console.log('changing');
+      console.log(todo);
+      if(todo.status==='toDo'){
+        todo.status='inProgress';
+        return todo;
+      }
+
+      if(todo.status==='inProgress'){
+        todo.status='done';
+        return todo;
+      }
+
+      if(todo.status==='done'){
+        //delete this shit
+      }
+    };
+
+    this.reverseStatusChange = function(todo){
+      console.log('changing');
+      console.log(todo);
+      if(todo.status==='inProgress'){
+        todo.status='toDo';
+        return todo;
+      }
+
+      if(todo.status==='done'){
+        todo.status='inProgress';
+        return todo;
+
+      }
+    };
+
+    // this.deleteToDo(todo){
+    //   .getToDo(todo.id)
+    // }
+
   }]);
-
-
-//   function toDoService(){
-
-
-//
-
-//     this.getToDo = function(id){
-//       return todos.filter(function(todo){
-//         return this.todo.id===id;
-//       })
-//       .reduce(function(_,todo){
-//         return todo;
-//       });
-//     };
-
-
-//     this.changeStatus = function(todo){
-//       console.log('changing');
-//       console.log(todo);
-//       if(todo.status==='toDo'){
-//         todo.status='inProgress';
-//         return todo;
-//       }
-
-//       if(todo.status==='inProgress'){
-//         todo.status='done';
-//         return todo;
-
-//       }
-
-//       if(todo.status==='done'){
-//         //delete this shit
-//       }
-//     };
-
-//     this.reverseStatusChange = function(todo){
-//       console.log('changing');
-//       console.log(todo);
-//       if(todo.status==='inProgress'){
-//         todo.status='toDo';
-//         return todo;
-//       }
-
-//       if(todo.status==='done'){
-//         todo.status='inProgress';
-//         return todo;
-
-//       }
-//     };
-
-//     // this.deleteToDo(todo){
-//     //   .getToDo(todo.id)
-//     // }
-
-//   }
-
-
