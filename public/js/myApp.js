@@ -3,12 +3,13 @@ angular.module('myApp',['ngRoute']);
 var myApp = angular.module('myApp');
 
 myApp
-  .config(['$routeProvider', '$locationProvider', function ($routeProvider,$locationProvider){
+  .config([ '$routeProvider',
+    function ($routeProvider){
 
-    $locationProvider.html5Mode({
-      enabled:true,
-      requireBase:false
-    });
+    // $locationProvider.html5Mode({
+    //   enabled:true,
+    //   requireBase:false
+    // });
 
 
     $routeProvider
