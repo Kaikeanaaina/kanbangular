@@ -7,7 +7,7 @@ angular.module('myApp')
       return $http.get('http://localhost:3000/api/tasks');
     };
 
-    this.addToDos = function(todo){
+    this.addTodos = function(todo){
       var new_todo ={
         title: todo.title,
         prioritySelection: todo.prioritySelection,
