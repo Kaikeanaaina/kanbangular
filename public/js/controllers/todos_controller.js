@@ -16,7 +16,6 @@ angular.module('myApp')
       .success( function ( res ) {
         $scope.tasks.push( res );
       });
-      console.log(res);
   };
 
   $scope.deleteThis=function(this_task){
