@@ -16,5 +16,12 @@ myApp
       .when('/', {
         templateUrl : 'views/default.html',
         controller : 'ToDosController'
+      })
+      .when('/login',{
+        templateUrl : 'views/login.html'
+      })
+      .when('/register', {
+        templateUrl : 'views/register.html',
+        controller : 'RegisterController'
       });
 }]);
