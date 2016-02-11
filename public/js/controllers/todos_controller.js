@@ -5,16 +5,18 @@ angular.module('myApp')
   function( $scope, toDoService ){
   $scope.toDoService = toDoService;
 
+  $scope.tasks =[];
   toDoService.getToDos()
-    .success( function ( data ) {
-      $scope.tasks = data;
+    .success( function ( res ) {
+      $scope.tasks = res;
     });
 
-  $scope.postTodo=function(new_todo) {
-    toDoService.addTodos( new_todo )
+  $scope.postTodo=function( res ) {
+    toDoService.addTodos( res )
       .success( function ( res ) {
         $scope.tasks.push( res );
       });
+      console.log(res);
   };
 
   $scope.deleteThis=function(this_task){
