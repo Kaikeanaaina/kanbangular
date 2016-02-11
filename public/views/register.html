@@ -1,0 +1,25 @@
+
+    <h2>Register</h2>
+    <div id="form">
+      <form method="POST" action="/register" enctype="application/x-www-form-urlencoded" id="registerForm" >
+          <p>username:</p>
+            <br>
+            <input type='text' size="50" name="username">
+          <br>
+          <p>username:</p>
+            <br>
+            <input type='text' size="50" name="verifyUsername">
+          <br>
+          <p>password:</p>
+            <br>
+            <input type='text' size="50" name="password">
+          <br>
+          <p>password:</p>
+            <br>
+            <input type='text' size="50" name="verifyPassword">
+          <br>
+          <button type="submit" form="registerForm" value="Submit" id="submit" ng-click="console">Submit</button>
+
+          <a ng-href="/login">Log In</a>
+      </form>
+    </div>
