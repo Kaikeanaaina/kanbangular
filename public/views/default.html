@@ -46,9 +46,9 @@
     <div ng-repeat="todo in tasks | filter:todo.status='toDo'" class="testCard" id="todoCard">
       <div class="content">
         <h2 class="todo_title">{{todo.title}}</h2>
-        <h4 class="todo_prioritySelection">Priority: {{todo.prioritySelection}}</h4>
-        <h4 class="todo_created_By">Created By: {{todo.created_By}}</h4>
-        <h4 class="todo_assigned_To">Assigned To: {{todo.assigned_To}}</h4>
+        <h4 class="todo_prioritySelection">Priority: {{todo.priority}}</h4>
+        <h4 class="todo_created_By">Created By: {{todo.created_by}}</h4>
+        <h4 class="todo_assigned_To">Assigned To: {{todo.assigned_to}}</h4>
         <div class="moveButtons">
           <div class="rightButton">
             <button type="button" ng-click="toDoService.changeStatus(todo);"> Start </button>
@@ -62,9 +62,9 @@
     <div ng-repeat="todo in tasks | filter:todo.status='inProgress'" class="testCard" id="inProgressCard">
       <div class="content">
         <h2 class="todo_title">{{todo.title}}</h2>
-        <h4 class="todo_prioritySelection">Priority: {{todo.prioritySelection}}</h4>
-        <h4 class="todo_created_By">Created By: {{todo.created_By}}</h4>
-        <h4 class="todo_assigned_To">Assigned To: {{todo.assigned_To}}</h4>
+        <h4 class="todo_prioritySelection">Priority: {{todo.priority}}</h4>
+        <h4 class="todo_created_By">Created By: {{todo.created_by}}</h4>
+        <h4 class="todo_assigned_To">Assigned To: {{todo.assigned_to}}</h4>
         <div class="moveButtons">
           <div class="rightButton">
             <button type="button" ng-click="toDoService.reverseStatusChange(todo);"> <~~ </button>
@@ -79,9 +79,9 @@
     <div ng-repeat="todo in tasks | filter:todo.status='done'" class="testCard" id="doneCard">
       <div class="content">
         <h2 class="todo_title">{{todo.title}}</h2>
-        <h4 class="todo_prioritySelection">Priority: {{todo.prioritySelection}}</h4>
-        <h4 class="todo_created_By">Created By: {{todo.created_By}}</h4>
-        <h4 class="todo_assigned_To">Assigned To: {{todo.assigned_To}}</h4>
+        <h4 class="todo_prioritySelection">Priority: {{todo.priority}}</h4>
+        <h4 class="todo_created_By">Created By: {{todo.created_by}}</h4>
+        <h4 class="todo_assigned_To">Assigned To: {{todo.assigned_to}}</h4>
         <div class="moveButtons">
           <div class="rightButton">
             <button type="button" ng-click="toDoService.reverseStatusChange(todo);"> <==8 </button>
