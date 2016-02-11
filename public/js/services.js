@@ -8,14 +8,12 @@ angular.module('myApp')
     };
 
     this.addTodos = function( task ){
-      console.log(task);
       var new_todo ={
         title: task.title,
         priority: task.prioritySelection,
         created_by: task.createdBy,
         assigned_to : task.assignedTo
       };
-        console.log(new_todo);
       return $http.post('http://localhost:3000/tasks', new_todo);
     };
 
@@ -33,10 +31,10 @@ angular.module('myApp')
         status : todo.status
       };
 
-      if(todo.status==='toDo'){
-        todo.status='inProgress';
-      } else if(todo.status==='inProgress'){
-        todo.status='done';
+      if(todo.status === 'toDo'){
+        todo.status = 'inProgress';
+      } else if(todo.status === 'inProgress'){
+        todo.status = 'done';
       }
         return $http.put('http://localhost:3000/tasks', updatedCard);
     };
