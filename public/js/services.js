@@ -27,15 +27,18 @@ angular.module('myApp')
     this.changeStatus = function(todo){
       console.log('changing');
       console.log(todo);
+      var updatedCard =
+      {
+        id : todo.id,
+        status : todo.status
+      };
+
       if(todo.status==='toDo'){
         todo.status='inProgress';
-        return todo;
-      }
-
-      if(todo.status==='inProgress'){
+      } else if(todo.status==='inProgress'){
         todo.status='done';
-        return todo;
       }
+        return $http.put('http://localhost:3000/tasks', updatedCard);
     };
 
     this.reverseStatusChange = function(todo){
