@@ -16,7 +16,6 @@ User.findAll()
 });
 
 router.post( '/', function (req, res ) {
-  console.log(req.body);
 User.create(
   {
     username: req.body.username,
