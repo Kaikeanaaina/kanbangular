@@ -16,7 +16,6 @@ router.get( '/', function ( req, res ) {
   });
 
 router.post( '/', function ( req, res ) {
-  console.log(req.body);
   Task.create(
     {
       title: req.body.title,
@@ -31,7 +30,17 @@ router.post( '/', function ( req, res ) {
   });
 
 router.put( '/', function ( req, res ) {
-
+  console.log(req.body);
+  Task.update(
+    {
+      status : 'inProgress'
+    },
+    {
+      where : { id : req.body.id }
+    })
+  .then( function ( tasks ) {
+    res.json( tasks );
+  });
 });
 
 module.exports = router;
