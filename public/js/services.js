@@ -4,18 +4,19 @@ angular.module('myApp')
   .service('toDoService', ['$http', function ( $http ) {
 
     this.getToDos = function(){
-      return $http.get('http://localhost:3000/api/tasks');
+      return $http.get('http://localhost:3000/tasks');
     };
 
-    this.addTodos = function(todo){
+    this.addTodos = function( task ){
+      console.log(task);
       var new_todo ={
-        title: todo.title,
-        prioritySelection: todo.prioritySelection,
-        status: 'toDo',
-        created_By: todo.createdBy,
-        assigned_To : todo.assignedTo
+        title: task.title,
+        priority: task.prioritySelection,
+        created_by: task.createdBy,
+        assigned_to : task.assignedTo
       };
-      return $http.post('http://localhost:3000/api/tasks', new_todo);
+        console.log(new_todo);
+      return $http.post('http://localhost:3000/tasks', new_todo);
     };
 
     this.deleteToDo = function(todo){
