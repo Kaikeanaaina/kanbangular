@@ -50,6 +50,10 @@ app.use(bodyParser.urlencoded({extended:true}));
 //   res.json( deletedOne["0"].id);
 // })
 
+app.get('*', function(req,res) {
+ res.sendFile('/public/index.html', { root : __dirname });
+});
+
 app.listen(3000,function(){
   db.sequelize.sync();
   console.log('CONNECTED');
