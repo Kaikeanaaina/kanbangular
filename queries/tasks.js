@@ -30,4 +30,8 @@ Task.create(
   });
 });
 
+router.delete('/:id',function( req , res){
+  console.log('kainoa keanaaina');
+})
+
 module.exports = router;
