@@ -1,8 +1,8 @@
 {
   "development": {
-    "username": "Kainoa",
-    "password": null,
-    "database": "kanbangular",
+    "username": "postgres",
+    "password": "postgres",
+    "database": "kanbangulardb",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
