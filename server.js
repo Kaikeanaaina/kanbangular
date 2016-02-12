@@ -26,5 +26,5 @@ app.get('*', function(req,res) {
 
 app.listen(3000,function(){
   db.sequelize.sync();
-  console.log('8====D KAI O===8');
+  console.log('CONNECTED');
 });

@@ -26,6 +26,7 @@
     "passport-local": "^1.0.0",
     "pg": "^4.4.4",
     "pg-hstore": "^2.3.2",
+    "req-flash": "0.0.2",
     "sequelize": "^3.19.2"
   }
 }
