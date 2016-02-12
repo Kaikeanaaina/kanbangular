@@ -19,18 +19,15 @@ angular.module('myApp')
   };
 
   $scope.deleteThis=function(this_task){
-    console.log('11111111');
+    var x = this_task;
+    var count = 0;
     toDoService.deleteToDo( this_task)
-        .success( function (res){
-         console.log(res);
-        var find = $scope.tasks.filter(function(task){
-          return task.id === res;
-        });
-
-         $scope.tasks.splice(find["0"].id-1,1);
-
-        })
-
+      .success( function (res){
+        toDoService.getToDos()
+          .success( function ( res ) {
+            $scope.tasks = res;
+          });
+      });
   }
 
 }]);
