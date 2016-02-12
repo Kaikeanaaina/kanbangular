@@ -5,15 +5,14 @@ var db = require('./../models');
 var User = db.User;
 var bodyParser = require('body-parser');
 var flash = require('connect-flash');
-var session = require('express-session');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
-var CONFIG = require('./../config/config.js');
+
 
 router.use(bodyParser.json());
 app.use(flash());
 
-app.use(session(CONFIG.SESSION));
+
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -24,9 +23,9 @@ User.findAll()
   });
 });
 
-app.get('/register', function(req,res){
-  res.render('photos/register', {messages : req.flash('messages')});
-});
+// app.get('/register', function(req,res){
+//   res.render('photos/register', {messages : req.flash('messages')});
+// });
 
 
 
@@ -64,5 +63,45 @@ router.post('/register',function(req,res){
     }
   })
 });
+
+//===================================
+
+
+router.post('/login', function(req,res){
+  console.log('55555', req.body);
+
+  User.findOne({
+    where:{
+      username: req.body.username
+    }
+  })
+  .then( function( data){
+
+    console.log('6666666', data.dataValues);
+
+    if(data!==null){
+      //this is where we authenticate them
+
+      console.log('77777', 'found a user')
+
+      if(req.body===data.dataValues.password){
+        console.log('888888', 'password clear');
+      }
+      else{
+        console.log('ERROR', 'password denied');
+      }
+
+
+    }
+    else {
+      //this means that the username wasn't found
+      console.log('ERROR 77777 did not find a username');
+    }
+
+
+
+  })
+})
+
 
 module.exports = router;
