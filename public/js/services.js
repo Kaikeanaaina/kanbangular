@@ -34,22 +34,24 @@ angular.module('myApp')
       } else if( task.status === 'inProgress' ) {
         task.status = 'done';
       }
-      return $http.put( 'http://localhost:3000/tasks', updatedCard );
+      return $http.put( 'http://localhost:3000/tasks/right', updatedCard );
     };
 
-    this.reverseStatusChange = function(todo){
+    this.reverseStatusChange = function(task){
       console.log('changing');
-      console.log(todo);
-      if(todo.status==='inProgress'){
-        todo.status='toDo';
-        return todo;
-      }
+      console.log(task);
+      var updatedCard =
+      {
+        id : task.id,
+        status : task.status
+      };
 
-      if(todo.status==='done'){
-        todo.status='inProgress';
-        return todo;
-
+      if( task.status === 'done' ) {
+        task.status = 'inProgress';
+      } else if( task.status === 'inProgress' ) {
+        task.status = 'toDo';
       }
+      return $http.put( 'http://localhost:3000/tasks/left', updatedCard );
     };
 
 
