@@ -7,10 +7,13 @@ var LocalStrategy = require('passport-local').Strategy;
 var loggedInChecker = false;
 var flash = require('connect-flash');
 var session = require('express-session');
+var CONFIG = require('./config/config.js');
 
 var db = require('./models');
 var User = db.User;
 var Task = db.Task;
+
+app.use(session(CONFIG.SESSION));
 
 app.use('/users', require('./queries/users.js'));
 app.use('/tasks', require('./queries/tasks.js'));
