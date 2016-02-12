@@ -31,9 +31,14 @@ router.post( '/', function ( req, res ) {
 
 router.put( '/', function ( req, res ) {
   console.log(req.body);
+  if( req.body.status === 'toDo' ) {
+    req.body.status = 'inProgress';
+  } else if(req.body.status === 'inProgress') {
+    req.body.status = 'done';
+  }
   Task.update(
     {
-      status : 'inProgress'
+      status : req.body.status
     },
     {
       where : { id : req.body.id }
