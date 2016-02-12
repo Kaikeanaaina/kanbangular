@@ -20,8 +20,8 @@ angular.module('myApp')
     };
 
     this.deleteToDo = function(todo){
-      console.log('22222222');
-      return $http.delete('http://localhost:3000/api/tasks/'+todo.id);
+      console.log('2222222');
+      return $http.delete('http://localhost:3000/tasks/'+todo.id);
     }
 
     this.changeStatus = function(todo){
@@ -51,6 +51,15 @@ angular.module('myApp')
         return todo;
 
       }
+    };
+
+    this.registerUser = function( user ){
+      console.log('11111');
+      var new_user ={
+        username: user.username,
+        password: user.password
+      };
+      //return $http.post('http://localhost:3000/users/register', new_user);
     };
 
 
