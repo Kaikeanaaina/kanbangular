@@ -32,8 +32,7 @@ app.get('/register', function(req,res){
 
 router.post('/register',function(req,res){
 
-  console.log('444444');
-  console.log(req.body);
+  console.log('444444', req.body);
 
   User.findOne({
     where:{
@@ -41,19 +40,27 @@ router.post('/register',function(req,res){
     }
   })
   .then(function(data){
-    if(!data){
+
+    console.log('555555', data);
+
+    if(data===null){
+      console.log('666666', ' CREATING USER');
     User.create(
       {
         username: req.body.username,
         password: req.body.password
       })
       .then( function ( user ) {
-        res.redirect( '/' );
+        res.json( user );
       });
     }
     else{
-      req.flash('messages', 'Username taken');
-      res.redirect('/register');
+      //if someone exists by that username
+        //we want to go back to register
+          //and let them know that username already exists
+          //can't register that username
+      console.log('ERROR 66666 username already exists');
+      res.json( data);
     }
   })
 });
