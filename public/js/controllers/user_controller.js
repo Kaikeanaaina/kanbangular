@@ -6,23 +6,41 @@ angular.module('myApp')
 
   $scope.registerUser = function( res,err ){
 
-    console.log('11111111');
-    if(res.hasOwnProperty('username') &&
-       res.hasOwnProperty('verifyUsername') &&
-       res.hasOwnProperty('password') &&
-       res.hasOwnProperty('verifyPassword')){
+    //this is where want to make validations
+    //and throw errors
+    console.log('111111', res);
 
-    console.log('22222');
+    if(res){
+      console.log('data received','222222', res);
+      if(res.hasOwnProperty('username') &&
+         res.hasOwnProperty('verifyUsername') &&
+         res.hasOwnProperty('password') &&
+         res.hasOwnProperty('verifyPassword')){
 
-      toDoService.registerUser( res )
-      .success( function ( data ) {
-        console.log('55555');
-        console.log(res, 'this is the res');
-        // $location.path('/');
-      });
+        console.log('22222', res);
 
+        toDoService.registerUser( res )
+        .success( function ( data ) {
 
+          console.log('777777', data);
+
+          $location.path('/users/login');
+        });
+      }
+
+      else {
+        //when they don't fill in Everything
+        //error out and tell them
+        // to fill in all fields
+        console.log('ERROR 2222, did not get through the validations');
+      }
+    } else {
+      //when they don't fill in anything
+      //error out and tell them
+      // to fill in the fields
+      console.log('ERROR 1111, there was no data');
     }
+
 
 
 
