@@ -22,21 +22,19 @@ angular.module('myApp')
       return $http.delete('http://localhost:3000/api/tasks/'+todo.id);
     }
 
-    this.changeStatus = function(todo){
-      console.log('changing');
-      console.log(todo);
+    this.changeStatus = function ( task ) {
       var updatedCard =
       {
-        id : todo.id,
-        status : todo.status
+        id : task.id,
+        status : task.status
       };
 
-      if(todo.status === 'toDo'){
-        todo.status = 'inProgress';
-      } else if(todo.status === 'inProgress'){
-        todo.status = 'done';
+      if( task.status === 'toDo' ) {
+        task.status = 'inProgress';
+      } else if( task.status === 'inProgress' ) {
+        task.status = 'done';
       }
-        return $http.put('http://localhost:3000/tasks', updatedCard);
+      return $http.put( 'http://localhost:3000/tasks', updatedCard );
     };
 
     this.reverseStatusChange = function(todo){
