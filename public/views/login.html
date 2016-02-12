@@ -1,17 +1,24 @@
-
-    <h2>Log In</h2>
-    <div id="form">
-      <form method="POST" action="/users/login" enctype="application/x-www-form-urlencoded" id="form1" >
-          <p>username:</p>
-            <br>
-            <input type='text' size="50" name="username">
-          <br>
-          <p>password:</p>
-            <br>
-            <input type='text' size="50" name="password">
-          <br>
-          <button type="submit" form="form1" value="Submit" id="submit">Submit</button>
-      </form>
-
-      <a ng-href="/#/users/register">Register</a>
+<h2>Log In</h2>
+<div id="form">
+  <fieldset>
+    <div>
+      <label for="user_username"> username:</label>
+      <br>
+      <input type="text" id="user_username" size="50" ng-model="user.username">
     </div>
+
+    <br>
+
+    <div>
+      <label for="user_password">password:</label>
+      <br>
+      <input type="text" size="50" id="user_password" ng-model="user.password">
+    </div>
+
+      <button type="submit" form="form1" value="Submit" id="submit" ng-click="loginUser(user); user = null">Submit</button>
+
+  </fieldset>
+
+
+  <a ng-href="/#/users/register">Register</a>
+</div>

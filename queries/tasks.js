@@ -77,7 +77,7 @@ router.delete('/:id',function( req , res){
     });
   })
   .then( function ( task ) {
-    res.json( task );
+    res.json( 'card '+ req.params.id + ' deleted' );
   });
 });
 

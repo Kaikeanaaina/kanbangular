@@ -52,13 +52,18 @@ angular.module('myApp')
     };
 
     this.registerUser = function( user ){
-      console.log('11111');
+      console.log('3333333', 'touched the service', user);
       var new_user ={
         username: user.username,
         password: user.password
       };
-      //return $http.post('http://localhost:3000/users/register', new_user);
+      return $http.post('http://localhost:3000/users/register', new_user);
     };
+
+    this.loginUser = function(user){
+      console.log('44444', user);
+      return $http.post('http://localhost:3000/users/login', user);
+    }
 
 
   }]);
