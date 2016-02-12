@@ -6,10 +6,10 @@ myApp
   .config([ '$routeProvider', '$locationProvider',
     function ($routeProvider, $locationProvider){
 
-    $locationProvider.html5Mode({
-      enabled:true,
-      requireBase:false
-    });
+    // $locationProvider.html5Mode({
+    //   enabled:true,
+    //   requireBase:false
+    // });
 
 
     $routeProvider
@@ -17,11 +17,12 @@ myApp
         templateUrl : 'views/default.html',
         controller : 'ToDosController'
       })
-      .when('/login',{
-        templateUrl : 'views/login.html'
+      .when('/users/login',{
+        templateUrl : 'views/login.html',
+        controller : 'UserController'
       })
-      .when('/register', {
+      .when('/users/register', {
         templateUrl : 'views/register.html',
-        controller : 'RegisterController'
+        controller : 'UserController'
       });
 }]);
