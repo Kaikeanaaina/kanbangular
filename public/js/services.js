@@ -20,7 +20,6 @@ angular.module('myApp')
     };
 
     this.deleteToDo = function(todo){
-      console.log('2222222');
       return $http.delete('http://localhost:3000/tasks/'+todo.id);
     }
 

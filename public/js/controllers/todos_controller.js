@@ -24,8 +24,6 @@ angular.module('myApp')
     var count = 0;
     toDoService.deleteToDo( this_task)
       .success( function (res){
-        console.log('66666');
-
         toDoService.getToDos()
           .success( function ( res ) {
             $scope.tasks = res;
