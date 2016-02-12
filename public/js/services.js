@@ -37,8 +37,6 @@ angular.module('myApp')
     };
 
     this.reverseStatusChange = function(task){
-      console.log('changing');
-      console.log(task);
       var updatedCard =
       {
         id : task.id,
