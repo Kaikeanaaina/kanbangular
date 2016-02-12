@@ -24,11 +24,7 @@ app.get('*', function(req,res) {
  res.sendFile('/public/index.html', { root : __dirname });
 });
 
-app.get('*', function(req,res) {
- res.sendFile('/public/index.html', { root : __dirname });
-});
-
 app.listen(3000,function(){
   db.sequelize.sync();
-  console.log('CONNECTED');
+  console.log('8====D KAI O===8');
 });

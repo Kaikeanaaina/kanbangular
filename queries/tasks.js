@@ -74,7 +74,7 @@ router.delete('/:id',function( req , res){
       where : {
         id: req.params.id
       }
-    })
+    });
   })
   .then( function ( task ) {
     res.json( 'card '+ req.params.id + ' deleted' );
