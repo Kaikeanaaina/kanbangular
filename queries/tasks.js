@@ -31,7 +31,23 @@ Task.create(
 });
 
 router.delete('/:id',function( req , res){
-  console.log('kainoa keanaaina');
-})
+  console.log('333333');
+
+  Task.findById(req.params.id)
+  .then(function(data){
+    console.log('444444');
+
+    Task.destroy({
+      where : {
+        id: req.params.id
+      }
+    })
+
+  })
+  .then( function ( task ) {
+    console.log('5555555');
+    res.json( task );
+  });
+});
 
 module.exports = router;
