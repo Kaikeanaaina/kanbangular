@@ -24,13 +24,6 @@ app.get('*', function(req,res) {
  res.sendFile('/public/index.html', { root : __dirname });
 });
 
-// app.delete( '/api/tasks/:id', function( req, res){
-//   deletedOne = tasks.splice(req.params.id-1,1);
-//   console.log(deletedOne["0"].id);
-//   res.json( deletedOne["0"].id);
-// })
-
-
 app.get('*', function(req,res) {
  res.sendFile('/public/index.html', { root : __dirname });
 });
