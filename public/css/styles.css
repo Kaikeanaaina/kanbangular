@@ -1,4 +1,9 @@
 
+body {
+  background-color: #03254F;
+  font-family: Arial;
+}
+
 .title {
   flex: 0 0 100%;
 }
@@ -7,63 +12,102 @@
   text-align: center;
 }
 
-.createNewToDo {
+.inputBar {
+  display: flex
+  flex-flow: row wrap;
+  background-color: #066485;
+  margin-bottom: 5px;
+}
 
+.createNewTask {
+  flex: 0 0 48%;
+}
+
+.editTask {
+  flex: 0 0 48%;
 }
 
 .content{
   margin: 5px;
   margin-bottom: 5px;
+  color: #2e2e1f;
 }
-
-
 
 .mainKanbanBoard {
   display: flex;
   flex-flow: row wrap;
+  justify-content: space-between;
   height: 800px;
   width: 100%;
-  border: 2px dashed orange;
+  /*border: 2px dashed orange;*/
 }
 
-.testCard {
+.taskCard {
   height: auto;
   width: auto;
   margin-top: 5px;
   margin-left: 5px;
   margin-right:5px;
-}
-
-#todoCard {
-  border: 2px solid purple;
-  background-color: white;
-}
-
-#inProgressCard{
-  border: 2px solid blue;
-  background-color: white;
-}
-
-#doneCard{
-  border: 2px solid green;
-  background-color: white;
+  border-radius: 5px;
+  border: 2px solid #adad85;
+  background-color: #ebebe0;
+  box-shadow: 0px 1px 3px #0f0f0a;
 }
 
 .todo_title {
-  margin: 1px;
+  margin: 2px;
 }
 
 .todo_prioritySelection {
-  margin: 1px;
+  margin: 2px;
 }
 
 .todo_created_By {
-  margin: 1px;
+  margin: 2px;
 }
 
-.rightButton {
-  align: right;
-  border: 1px solid brown;
+.todo_assigned_To {
+  margin: 2px;
+}
+
+.buttonBar {
+  display: flex;
+  flex-flow: flex-end row no wrap;
+  justify-content: space-between;
+  /*border: 1px solid brown;*/
+}
+
+.taskCardButton {
+  flex: 0 0 20%;
+  background: #a6a18f;
+  background-image: -webkit-linear-gradient(top, #a6a18f, #f0e8d1);
+  background-image: -moz-linear-gradient(top, #a6a18f, #f0e8d1);
+  background-image: -ms-linear-gradient(top, #a6a18f, #f0e8d1);
+  background-image: -o-linear-gradient(top, #a6a18f, #f0e8d1);
+  background-image: linear-gradient(to bottom, #a6a18f, #f0e8d1);
+  -webkit-border-radius: 10;
+  -moz-border-radius: 10;
+  border-radius: 10px;
+  text-shadow: 1px 1px 3px #666666;
+  /*-webkit-box-shadow: 0px 1px 3px #666666;*/
+  /*-moz-box-shadow: 0px 1px 3px #666666;*/
+  /*box-shadow: 0px 1px 3px #666666;*/
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 12px;
+  padding: 2px 5px 2px 5px;
+  border: solid #a8a08d 1px;
+  text-decoration: none;
+}
+
+.taskCardButton:hover {
+  background: #a6a18f;
+  background-image: -webkit-linear-gradient(top, #a6a18f, #a6a18f);
+  background-image: -moz-linear-gradient(top, #a6a18f, #a6a18f);
+  background-image: -ms-linear-gradient(top, #a6a18f, #a6a18f);
+  background-image: -o-linear-gradient(top, #a6a18f, #a6a18f);
+  background-image: linear-gradient(to bottom, #a6a18f, #a6a18f);
+  text-decoration: none;
 }
 
 .todo_assigned_To {
@@ -73,20 +117,20 @@
 .todoColumn {
   height: 100%;
   flex: 0 0 32.5%;
-  border: 1px solid red;
-  background-color: rgba(255,0,0,0.3);
+  /*border: 1px solid red;*/
+  background-color:#AFDAB7;
 }
 
 .inProgressColumn {
   height: 100%;
   flex: 0 0 32.5%;
-  border: 1px solid blue;
-  background-color: rgba(0,0,255,0.3);
+  /*border: 1px solid blue;*/
+  background-color: #AFDAB7;
 }
 
 .completedColumn {
   height: 100%;
   flex: 0 0 32.5%;
-  border: 1px solid green;
-  background-color: rgba(0,255,0,0.3);
+  /*border: 1px solid green;*/
+  background-color: #AFDAB7;
 }
