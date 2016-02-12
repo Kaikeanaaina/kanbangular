@@ -70,14 +70,14 @@ router.put( '/left', function ( req, res ) {
 router.delete('/:id',function( req , res){
   Task.findById(req.params.id)
   .then(function(data){
-    Task.destroy({
+    return Task.destroy({
       where : {
         id: req.params.id
       }
     })
   })
   .then( function ( task ) {
-    res.json( task );
+    res.json( 'card '+ req.params.id + ' deleted' );
   });
 });
 
