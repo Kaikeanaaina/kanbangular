@@ -52,7 +52,7 @@ angular.module('myApp')
     };
 
     this.registerUser = function( user ){
-      console.log('3333333');
+      console.log('3333333', 'touched the service', user);
       var new_user ={
         username: user.username,
         password: user.password
