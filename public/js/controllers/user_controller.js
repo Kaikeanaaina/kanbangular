@@ -41,11 +41,40 @@ angular.module('myApp')
       console.log('ERROR 1111, there was no data');
     }
 
-
-
-
-
   };
+
+  $scope.loginUser = function(res, err){
+    console.log('1111111', res);
+
+    if(res){
+      console.log('222222', res);
+      if(res.hasOwnProperty('username') &&
+         res.hasOwnProperty('password')){
+        console.log('33333', res)
+
+      toDoService.loginUser(res)
+
+
+
+      }
+      else{
+        console.log('ERROR 33333', 'Fill in All Fields');
+      }
+    }
+    else{
+      console.log('ERROR 22222', 'Fill in any fields');
+    }
+
+
+
+
+
+
+
+
+
+
+  }
 
 
 
