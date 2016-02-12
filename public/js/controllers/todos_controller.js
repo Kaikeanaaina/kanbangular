@@ -26,6 +26,6 @@ angular.module('myApp')
             $scope.tasks = res;
           });
       });
-  }
+  };
 
 }]);
