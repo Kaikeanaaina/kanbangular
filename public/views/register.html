@@ -1,25 +1,26 @@
+<fieldset>
+  <h2>Register</h2>
+  <div id="form">
+    <form method="POST" action="/users/register" enctype="application/x-www-form-urlencoded" id="registerForm" >
+        <p>username:</p>
+          <br>
+          <input type='text' size="50" name= "username" ng-model="new_user.username">
+        <br>
+        <p>username:</p>
+          <br>
+          <input type='text' size="50" name="verifyUsername">
+        <br>
+        <p>password:</p>
+          <br>
+          <input type='text' size="50" name="password" ng-model="new_user.password">
+        <br>
+        <p>password:</p>
+          <br>
+          <input type='text' size="50" name="verifyPassword">
+        <br>
+        <button type="submit" form="registerForm" value="Submit" id="submit" ng-click="registerUser(new_user); new_user = null">Submit</button>
 
-    <h2>Register</h2>
-    <div id="form">
-      <form method="POST" action="/register" enctype="application/x-www-form-urlencoded" id="registerForm" >
-          <p>username:</p>
-            <br>
-            <input type='text' size="50" name="username">
-          <br>
-          <p>username:</p>
-            <br>
-            <input type='text' size="50" name="verifyUsername">
-          <br>
-          <p>password:</p>
-            <br>
-            <input type='text' size="50" name="password">
-          <br>
-          <p>password:</p>
-            <br>
-            <input type='text' size="50" name="verifyPassword">
-          <br>
-          <button type="submit" form="registerForm" value="Submit" id="submit" ng-click="console">Submit</button>
-
-          <a ng-href="/login">Log In</a>
-      </form>
-    </div>
+        <a ng-href="/login">Log In</a>
+    </form>
+  </div>
+</fieldset>
