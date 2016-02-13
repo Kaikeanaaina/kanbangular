@@ -56,7 +56,7 @@ passport.use( new LocalStrategy(
 ));
 
 app.get('*', function(req,res) {
- res.sendFile('/public/index.html', { root : __dirname });
+  res.sendFile('/public/index.html', { root : __dirname });
 });
 
 app.listen(3000,function(){
