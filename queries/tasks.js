@@ -9,6 +9,7 @@ router.use(bodyParser.json());
 
 
 router.get( '/', function ( req, res ) {
+  console.log('========', req.user );
   Task.findAll()
     .then( function ( tasks ) {
       res.json( tasks );
@@ -22,7 +23,8 @@ router.post( '/', function ( req, res ) {
       priority: req.body.priority,
       created_by: req.body.created_by,
       assigned_to : req.body.assigned_to,
-      status: 'toDo'
+      status: 'toDo',
+      UserId: req.user.id
     })
     .then( function ( tasks ) {
       res.json( tasks );
@@ -30,7 +32,6 @@ router.post( '/', function ( req, res ) {
   });
 
 router.put( '/right', function ( req, res ) {
-  console.log(req.body);
   if( req.body.status === 'toDo' ) {
     req.body.status = 'inProgress';
   } else if(req.body.status === 'inProgress') {
@@ -49,7 +50,6 @@ router.put( '/right', function ( req, res ) {
 });
 
 router.put( '/left', function ( req, res ) {
-  console.log(req.body);
   if( req.body.status === 'done' ) {
     req.body.status = 'inProgress';
   } else if(req.body.status === 'inProgress') {

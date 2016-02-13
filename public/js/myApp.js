@@ -17,12 +17,16 @@ myApp
         templateUrl : 'views/default.html',
         controller : 'ToDosController'
       })
-      .when('/users/login',{
+      .when('/users/login', {
         templateUrl : 'views/login.html',
         controller : 'UserController'
       })
       .when('/users/register', {
         templateUrl : 'views/register.html',
+        controller : 'UserController'
+      })
+      .when('users/logout', {
+        templateUrl : 'views/login.html',
         controller : 'UserController'
       });
 }]);

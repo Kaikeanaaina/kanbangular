@@ -61,9 +61,10 @@ angular.module('myApp')
     };
 
     this.loginUser = function(user){
-      console.log('44444', user);
       return $http.post('http://localhost:3000/users/login', user);
-    }
+    };
 
+    this.logoutUser = function ( user ){
 
+    };
   }]);

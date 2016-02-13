@@ -1,7 +1,8 @@
 'use strict';
 
 angular.module('myApp')
-.controller('UserController', ['$scope','toDoService', '$location',function($scope, toDoService, $location){
+.controller('UserController', ['$scope','toDoService', '$location',
+  function($scope, toDoService, $location){
 
 
   $scope.registerUser = function( res,err ){
@@ -43,27 +44,25 @@ angular.module('myApp')
 
   };
 
-  $scope.loginUser = function(res, err){
-    console.log('1111111', res);
-
-    if(res){
-      console.log('222222', res);
-      if(res.hasOwnProperty('username') &&
-         res.hasOwnProperty('password')){
-        console.log('33333', res)
-
-      toDoService.loginUser(res)
-
-
-
-      }
-      else{
-        console.log('ERROR 33333', 'Fill in All Fields');
+  $scope.loginUser = function( user, err){
+    if( user ){
+      if(user.hasOwnProperty('username') &&
+         user.hasOwnProperty('password')){
+        console.log('blah');
+        toDoService.loginUser(user)
+          .success( function ( res ) {
+            $location.path('/');
+          })
+          .error( function ( res ) {
+            console.log(res);
+          });
       }
     }
-    else{
-      console.log('ERROR 22222', 'Fill in any fields');
-    }
+  };
+
+$scope.logoutUser = function ( userId ) {
+
+};
 
 
 
@@ -71,10 +70,6 @@ angular.module('myApp')
 
 
 
-
-
-
-  }
 
 
 
