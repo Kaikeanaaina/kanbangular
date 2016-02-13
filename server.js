@@ -61,5 +61,5 @@ app.get('*', function(req,res) {
 
 app.listen(3000,function(){
   db.sequelize.sync();
-  console.log('CONNECTED');
+  console.log('Connected');
 });
