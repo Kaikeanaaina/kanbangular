@@ -8,11 +8,19 @@ var flash = require('connect-flash');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 
+var auth = function(req, res, next){
+  console.log('inside auth');
+  if (!req.isAuthenticated()) {
+    res.send(401);
+  } else {
+    next();
+  }
+};
 
 router.use(bodyParser.json());
 app.use(flash());
 
-router.get( '/', function ( req, res ) {
+router.get( '/', auth, function ( req, res ) {
 User.findAll()
   .then( function ( users ) {
     res.json( users );
@@ -57,51 +65,17 @@ router.post('/register',function(req,res){
       console.log('ERROR 66666 username already exists');
       res.json( data);
     }
-  })
+  });
 });
 
-//===================================
+router.route( '/loggedIn', function ( req, res ) {
+  res.send( req.isAuthenticated() ? req.user : '0' );
+});
 
-
-// router.post('/login', function(req,res){
-//   console.log('55555', req.body);
-
-//   User.findOne({
-//     where:{
-//       username: req.body.username
-//     }
-//   })
-//   .then( function( data){
-
-//     console.log('6666666', data);
-
-//     if(data!==null){
-//       //this is where we authenticate them
-
-//       console.log('77777', 'found a user')
-
-//       if(req.body.password===data.dataValues.password){
-//         console.log('888888', 'password clear');
-//       }
-//       else{
-//         console.log('ERROR', 'password denied');
-//       }
-
-
-//     }
-//     else {
-//       //this means that the username wasn't found
-//       console.log('ERROR 77777 did not find a username');
-//     }
-
-
-
-//   })
-// })
 
 router.route( '/login' )
   .get( function ( req, res ) {
-    res.render( 'users/login' );
+    res.sendFile('../public/index.html', { root : __dirname });
   })
   .post(
     passport.authenticate('local', { failWithError: true }),
@@ -120,7 +94,7 @@ router.route( '/login' )
 router.route( '/logout' )
   .get( function ( req, res ) {
     req.logout();
-    res.render( 'users/login' );
+    res.redirect( '/#/' );
   });
 
 module.exports = router;
