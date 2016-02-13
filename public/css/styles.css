@@ -13,18 +13,18 @@ body {
 }
 
 .inputBar {
-  display: flex
+  display: flex;
   flex-flow: row wrap;
   background-color: #066485;
   margin-bottom: 5px;
 }
 
 .createNewTask {
-  flex: 0 0 48%;
+  flex: 0 0 50%;
 }
 
 .editTask {
-  flex: 0 0 48%;
+  flex: 0 0 50%;
 }
 
 .content{
