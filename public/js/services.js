@@ -4,7 +4,7 @@ angular.module('myApp')
   .service('toDoService', ['$http', function ( $http ) {
 
     this.getToDos = function(){
-      return $http.get('http://localhost:3000/tasks');
+      return $http.get('/tasks');
     };
 
     this.addTodos = function( task ){
@@ -14,11 +14,11 @@ angular.module('myApp')
         created_by: task.createdBy,
         assigned_to : task.assignedTo
       };
-      return $http.post('http://localhost:3000/tasks', new_todo);
+      return $http.post('/tasks', new_todo);
     };
 
     this.deleteToDo = function(todo){
-      return $http.delete('http://localhost:3000/tasks/'+todo.id);
+      return $http.delete('/tasks/'+todo.id);
     }
 
     this.changeStatus = function ( task ) {
@@ -33,7 +33,7 @@ angular.module('myApp')
       } else if( task.status === 'inProgress' ) {
         task.status = 'done';
       }
-      return $http.put( 'http://localhost:3000/tasks/right', updatedCard );
+      return $http.put( '/tasks/right', updatedCard );
     };
 
     this.reverseStatusChange = function(task){
@@ -48,7 +48,7 @@ angular.module('myApp')
       } else if( task.status === 'inProgress' ) {
         task.status = 'toDo';
       }
-      return $http.put( 'http://localhost:3000/tasks/left', updatedCard );
+      return $http.put( '/tasks/left', updatedCard );
     };
 
     this.registerUser = function( user ){
@@ -57,14 +57,14 @@ angular.module('myApp')
         username: user.username,
         password: user.password
       };
-      return $http.post('http://localhost:3000/users/register', new_user);
+      return $http.post('/users/register', new_user);
     };
 
     this.loginUser = function(user){
-      return $http.post('http://localhost:3000/users/login', user);
+      return $http.post('/users/login', user);
     };
 
     this.logoutUser = function ( user ){
-
+      return $http.get( '/users/logout', user);
     };
   }]);
