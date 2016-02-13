@@ -59,18 +59,4 @@ angular.module('myApp')
       }
     }
   };
-
-$scope.logoutUser = function ( userId ) {
-
-};
-
-
-
-
-
-
-
-
-
-
 }]);
