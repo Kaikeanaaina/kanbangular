@@ -8,6 +8,9 @@ angular.module('myApp')
     };
 
     this.addTodos = function( task ){
+
+      console.log(task.prioritySelection);
+
       var new_todo ={
         title: task.title,
         priority: task.prioritySelection,

@@ -30,7 +30,7 @@ router.post( '/', auth, function ( req, res ) {
     {
       title: req.body.title,
       priority: req.body.priority,
-      created_by: req.body.created_by,
+      created_by: req.user.username,
       assigned_to : req.body.assigned_to,
       status: 'toDo',
       UserId: req.user.id

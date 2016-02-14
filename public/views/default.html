@@ -20,12 +20,12 @@
 
     <div>
       <label for="new_task_priority">Priority</label>
-      <input id="new_task_priority" type="text" ng-model='new_todo.prioritySelection'>
-    </div>
-
-    <div>
-      <label for="new_task_created">Created By</label>
-      <input id="new_task_created" type="text" ng-model='new_todo.createdBy'>
+      <select id="new_task_priority" ng-model='new_todo.prioritySelection'>
+        <option value="BLOCKER">BLOCKER</option>
+        <option value="High">High</option>
+        <option value="medium">medium</option>
+        <option value="low">low</option>
+      </select>
     </div>
 
     <div>
@@ -51,12 +51,12 @@
 
     <div>
       <label for="new_task_priority">Priority</label>
-      <input id="new_task_priority" type="text" ng-model='new_todo.prioritySelection'>
-    </div>
-
-    <div>
-      <label for="new_task_created">Created By</label>
-      <input id="new_task_created" type="text" ng-model='new_todo.createdBy'>
+      <select id="new_task_priority" ng-model='new_todo.prioritySelection'>
+        <option value="BLOCK">BLOCK</option>
+        <option value="High">High</option>
+        <option value="medium">medium</option>
+        <option value="low">low</option>
+      </select>
     </div>
 
     <div>
@@ -76,7 +76,7 @@
 <div class="mainKanbanBoard">
 
   <div class="todoColumn">ToDo Status Column
-    <div ng-repeat="todo in tasks | filter:todo.status='toDo'" class="taskCard">
+    <div class="taskCard" ng-repeat="todo in tasks | filter:todo.status='toDo'" >
       <div class="content">
         <h2 class="todo_title">{{todo.title}}</h2>
         <h4 class="todo_prioritySelection">Priority: {{todo.priority}}</h4>
