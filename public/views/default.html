@@ -69,10 +69,10 @@
   <div class="todoColumn">ToDo Status Column
     <div class="taskCard" ng-repeat="task in tasks | statusCheck:'toDo'" >
       <div class="content">
-        <h2 class="todo_title">{{todo.title}}</h2>
-        <h4 class="todo_prioritySelection">Priority: {{todo.priority}}</h4>
-        <h4 class="todo_created_By">Created By: {{todo.created_by}}</h4>
-        <h4 class="todo_assigned_To">Assigned To: {{todo.assigned_to}}</h4>
+        <h2 class="todo_title">{{task.title}}</h2>
+        <h4 class="todo_prioritySelection">Priority: {{task.priority}}</h4>
+        <h4 class="todo_created_By">Created By: {{task.created_by}}</h4>
+        <h4 class="todo_assigned_To">Assigned To: {{task.assigned_to}}</h4>
         <div class="buttonBar">
           <button class="taskCardButton" type="button" ng-click="deleteThis(todo);"> <== </button>
           <button class="taskCardButton" type="button" ng-click="priorityUp(task)"> UP </button>
