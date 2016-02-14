@@ -70,7 +70,7 @@ router.put( '/left', auth, function ( req, res ) {
       where : { id : req.body.id }
     })
   .then( function ( tasks ) {
-    res.json( tasks );
+    res.sendStatus( 200 );
   });
 });
 
