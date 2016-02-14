@@ -20,10 +20,8 @@ angular.module('myApp')
 
   $scope.changeStatusRight = function ( task ) {
     toDoService.changeStatus( task )
-      .success( function ( res ) {
-        console.log(res);
-      })
-  }
+      .success( function () {});
+  };
 
   $scope.deleteThis=function(this_task){
     toDoService.deleteToDo( this_task)
