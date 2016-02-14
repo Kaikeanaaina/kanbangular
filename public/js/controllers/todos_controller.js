@@ -23,6 +23,11 @@ angular.module('myApp')
       .success( function () {});
   };
 
+  $scope.changeStatusLeft = function ( task ) {
+    toDoService.reverseChangeStatus( task )
+      .success( function () {});
+  };
+
   $scope.deleteThis=function(this_task){
     toDoService.deleteToDo( this_task)
       .success( function (res){
