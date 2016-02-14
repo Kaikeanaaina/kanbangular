@@ -36,7 +36,7 @@ angular.module('myApp')
       return $http.put( '/tasks/right', updatedCard );
     };
 
-    this.reverseStatusChange = function(task){
+    this.reverseChangeStatus = function(task){
       var updatedCard =
       {
         id : task.id,
