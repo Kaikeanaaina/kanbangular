@@ -76,7 +76,7 @@
 <div class="mainKanbanBoard">
 
   <div class="todoColumn">ToDo Status Column
-    <div class="taskCard" ng-repeat="todo in tasks | statusCheck:'toDo'" >
+    <div class="taskCard" ng-repeat="task in tasks | statusCheck:'toDo'" >
       <div class="content">
         <h2 class="todo_title">{{todo.title}}</h2>
         <h4 class="todo_prioritySelection">Priority: {{todo.priority}}</h4>
@@ -84,9 +84,9 @@
         <h4 class="todo_assigned_To">Assigned To: {{todo.assigned_to}}</h4>
         <div class="buttonBar">
           <button class="taskCardButton" type="button" ng-click="deleteThis(todo);"> <== </button>
-          <button class="taskCardButton" type="button"> UP </button>
-          <button class="taskCardButton" type="button"> DOWN </button>
-          <button class="taskCardButton" type="button" ng-click="toDoService.changeStatus(todo);"> ==> </button>
+          <button class="taskCardButton" type="button" ng-click="priorityUp(task)"> UP </button>
+          <button class="taskCardButton" type="button" ng-click="priorityDown(task)"> DOWN </button>
+          <button class="taskCardButton" type="button" ng-click="changeStatusRight(task)"> ==> </button>
         </div>
       </div>
     </div>
@@ -101,8 +101,8 @@
         <h4 class="todo_assigned_To">Assigned To: {{todo.assigned_to}}</h4>
         <div class="buttonBar">
           <button class="taskCardButton" type="button" ng-click="toDoService.reverseStatusChange(todo);"> <== </button>
-          <button class="taskCardButton" type="button"> UP </button>
-          <button class="taskCardButton" type="button"> DOWN </button>
+          <button class="taskCardButton" type="button" ng-click="priorityUp(task)"> UP </button>
+          <button class="taskCardButton" type="button" ng-click="priorityDown(task)"> DOWN </button>
           <button class="taskCardButton" type="button" ng-click="toDoService.changeStatus(todo);"> ==> </button>
         </div>
       </div>
@@ -118,8 +118,8 @@
         <h4 class="todo_assigned_To">Assigned To: {{todo.assigned_to}}</h4>
         <div class="buttonBar">
           <button class="taskCardButton" type="button" ng-click="toDoService.reverseStatusChange(todo);"> <== </button>
-          <button class="taskCardButton" type="button"> UP </button>
-          <button class="taskCardButton" type="button"> DOWN </button>
+          <button class="taskCardButton" type="button" ng-click="priorityUp(task)"> UP </button>
+          <button class="taskCardButton" type="button" ng-click="priorityDown(task)"> DOWN </button>
           <button class="taskCardButton" type="button" ng-click="deleteThis(todo);"> ==> </button>
         </div>
       </div>
