@@ -1,10 +1,10 @@
-// 'use strict';
+'use strict';
 
-// angular.module('myApp')
-//   .filter('statusFilter', function(){
-//     return function(collection, status){
-//       return collection.filter(function(task){
-//         return  task.status === status;
-//       });
-//     };
-//   });
+angular.module('myApp')
+  .filter('statusCheck', function(){
+    return function(card, status){
+      return card.filter(function(task){
+        return  task.status === status;
+      });
+    };
+  });
