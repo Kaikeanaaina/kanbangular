@@ -8,9 +8,6 @@ angular.module('myApp')
     };
 
     this.addTodos = function( task ){
-
-      console.log(task.prioritySelection);
-
       var new_todo ={
         title: task.title,
         priority: task.prioritySelection,
@@ -55,7 +52,6 @@ angular.module('myApp')
     };
 
     this.registerUser = function( user ){
-      console.log('3333333', 'touched the service', user);
       var new_user ={
         username: user.username,
         password: user.password
