@@ -39,39 +39,45 @@ body {
   justify-content: space-between;
   height: 800px;
   width: 100%;
-  /*border: 2px dashed orange;*/
 }
 
 .taskCard {
   height: auto;
   width: auto;
   margin: 5px;
-  border-radius-top: 5px;
+  padding: 4px 4px 2px 4px;
+  border-radius: 10px;
   background-color: #44769F;
-  box-shadow: 0px 1px 3px #172632;
+  box-shadow: 0px 2px 4px #172632;
 }
 
 .todo_title {
   margin: 2px;
+  color: #F6F6F6;
+  text-shadow: 1px 1px 2px #666666;
+
 }
 
 .todo_prioritySelection {
   margin: 2px;
+  color: #172632;
 }
 
 .todo_created_By {
   margin: 2px;
+  color: #172632;
 }
 
 .todo_assigned_To {
   margin: 2px;
+  color: #172632;
 }
 
 .buttonBar {
   display: flex;
   flex-flow: flex-end row no wrap;
   justify-content: space-between;
-  /*border: 1px solid brown;*/
+  margin: 2px;
 }
 
 .taskCardButton {
@@ -86,9 +92,9 @@ body {
   -moz-border-radius: 5px;
   border-radius: 5px;
   text-shadow: 1px 1px 3px #666666;
-  /*-webkit-box-shadow: 0px 1px 3px #666666;*/
-  /*-moz-box-shadow: 0px 1px 3px #666666;*/
-  /*box-shadow: 0px 1px 3px #666666;*/
+  -webkit-box-shadow: 0px 1px 3px #666666;
+  -moz-box-shadow: 0px 1px 3px #666666;
+  box-shadow: 0px 1px 3px #666666;
   font-family: Arial;
   color: #F6F6F6;
   font-size: 12px;
@@ -114,20 +120,23 @@ body {
 .todoColumn {
   height: 100%;
   flex: 0 0 32.5%;
-  /*border: 1px solid red;*/
-  background-color:#AFDAB7;
+  background-color:#F6F6F6;
+  border-radius: 5px;
+  box-shadow: 0px 2px 4px #666666;
 }
 
 .inProgressColumn {
   height: 100%;
   flex: 0 0 32.5%;
-  /*border: 1px solid blue;*/
-  background-color: #AFDAB7;
+  background-color: #F6F6F6;
+  border-radius: 5px;
+  box-shadow: 0px 2px 4px #666666;
 }
 
 .completedColumn {
   height: 100%;
   flex: 0 0 32.5%;
-  /*border: 1px solid green;*/
-  background-color: #AFDAB7;
+  background-color: #F6F6F6;
+  border-radius: 5px;
+  box-shadow: 0px 2px 4px #666666;
 }
