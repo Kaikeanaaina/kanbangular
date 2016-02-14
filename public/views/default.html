@@ -74,44 +74,44 @@
         <h4 class="todo_created_By">Created By: {{task.created_by}}</h4>
         <h4 class="todo_assigned_To">Assigned To: {{task.assigned_to}}</h4>
         <div class="buttonBar">
-          <button class="taskCardButton" type="button" ng-click="deleteThis(todo);"> <== </button>
+          <button class="taskCardButton" type="button" ng-click="deleteThis(todo);"> REMOVE </button>
           <button class="taskCardButton" type="button" ng-click="priorityUp(task)"> UP </button>
           <button class="taskCardButton" type="button" ng-click="priorityDown(task)"> DOWN </button>
-          <button class="taskCardButton" type="button" ng-click="changeStatusRight(task)"> ==> </button>
+          <button class="taskCardButton" type="button" ng-click="changeStatusRight(task)"> BEGIN </button>
         </div>
       </div>
     </div>
   </div>
 
   <div class="inProgressColumn">In Progress Status
-    <div ng-repeat="todo in tasks | statusCheck:'inProgress'" class="taskCard">
+    <div ng-repeat="task in tasks | statusCheck:'inProgress'" class="taskCard">
       <div class="content">
-        <h2 class="todo_title">{{todo.title}}</h2>
-        <h4 class="todo_prioritySelection">Priority: {{todo.priority}}</h4>
-        <h4 class="todo_created_By">Created By: {{todo.created_by}}</h4>
-        <h4 class="todo_assigned_To">Assigned To: {{todo.assigned_to}}</h4>
+        <h2 class="todo_title">{{task.title}}</h2>
+        <h4 class="todo_prioritySelection">Priority: {{task.priority}}</h4>
+        <h4 class="todo_created_By">Created By: {{task.created_by}}</h4>
+        <h4 class="todo_assigned_To">Assigned To: {{task.assigned_to}}</h4>
         <div class="buttonBar">
-          <button class="taskCardButton" type="button" ng-click="toDoService.reverseStatusChange(todo);"> <== </button>
+          <button class="taskCardButton" type="button" ng-click="changeStatusLeft(task)"> QUEUE </button>
           <button class="taskCardButton" type="button" ng-click="priorityUp(task)"> UP </button>
           <button class="taskCardButton" type="button" ng-click="priorityDown(task)"> DOWN </button>
-          <button class="taskCardButton" type="button" ng-click="toDoService.changeStatus(todo);"> ==> </button>
+          <button class="taskCardButton" type="button" ng-click="changeStatusRight(task)"> COMPLETED </button>
         </div>
       </div>
     </div>
   </div>
 
   <div class="completedColumn">Completed Status
-    <div ng-repeat="todo in tasks | statusCheck:'done'" class="taskCard">
+    <div ng-repeat="task in tasks | statusCheck:'done'" class="taskCard">
       <div class="content">
-        <h2 class="todo_title">{{todo.title}}</h2>
-        <h4 class="todo_prioritySelection">Priority: {{todo.priority}}</h4>
-        <h4 class="todo_created_By">Created By: {{todo.created_by}}</h4>
-        <h4 class="todo_assigned_To">Assigned To: {{todo.assigned_to}}</h4>
+        <h2 class="todo_title">{{task.title}}</h2>
+        <h4 class="todo_prioritySelection">Priority: {{task.priority}}</h4>
+        <h4 class="todo_created_By">Created By: {{task.created_by}}</h4>
+        <h4 class="todo_assigned_To">Assigned To: {{task.assigned_to}}</h4>
         <div class="buttonBar">
-          <button class="taskCardButton" type="button" ng-click="toDoService.reverseStatusChange(todo);"> <== </button>
+          <button class="taskCardButton" type="button" ng-click="changeStatusLeft(task)"> INCOMPLETE </button>
           <button class="taskCardButton" type="button" ng-click="priorityUp(task)"> UP </button>
           <button class="taskCardButton" type="button" ng-click="priorityDown(task)"> DOWN </button>
-          <button class="taskCardButton" type="button" ng-click="deleteThis(todo);"> ==> </button>
+          <button class="taskCardButton" type="button" ng-click="deleteThis(todo);"> FINISHED </button>
         </div>
       </div>
   </div>
