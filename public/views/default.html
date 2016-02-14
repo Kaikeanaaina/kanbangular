@@ -83,10 +83,10 @@
         <h4 class="todo_created_By">Created By: {{todo.created_by}}</h4>
         <h4 class="todo_assigned_To">Assigned To: {{todo.assigned_to}}</h4>
         <div class="buttonBar">
-          <button class="taskCardButton" type="button" ng-click="toDoService.changeStatus(todo);"> <== </button>
+          <button class="taskCardButton" type="button" ng-click="deleteThis(todo);"> <== </button>
           <button class="taskCardButton" type="button"> UP </button>
           <button class="taskCardButton" type="button"> DOWN </button>
-          <button class="taskCardButton" type="button"> ==> </button>
+          <button class="taskCardButton" type="button" ng-click="toDoService.changeStatus(todo);"> ==> </button>
         </div>
       </div>
     </div>
@@ -100,9 +100,10 @@
         <h4 class="todo_created_By">Created By: {{todo.created_by}}</h4>
         <h4 class="todo_assigned_To">Assigned To: {{todo.assigned_to}}</h4>
         <div class="buttonBar">
-          <button class="taskCardButton" type="button" ng-click="toDoService.reverseStatusChange(todo);"> Back </button>
-          <button class="taskCardButton" type="button" ng-click="editTask(todo);"> Edit </button>
-          <button class="taskCardButton" type="button" ng-click="toDoService.changeStatus(todo);"> Complete </button>
+          <button class="taskCardButton" type="button" ng-click="toDoService.reverseStatusChange(todo);"> <== </button>
+          <button class="taskCardButton" type="button"> UP </button>
+          <button class="taskCardButton" type="button"> DOWN </button>
+          <button class="taskCardButton" type="button" ng-click="toDoService.changeStatus(todo);"> ==> </button>
         </div>
       </div>
     </div>
@@ -116,9 +117,10 @@
         <h4 class="todo_created_By">Created By: {{todo.created_by}}</h4>
         <h4 class="todo_assigned_To">Assigned To: {{todo.assigned_to}}</h4>
         <div class="buttonBar">
-          <button class="taskCardButton" type="button" ng-click="toDoService.reverseStatusChange(todo);"> Back </button>
-          <button class="taskCardButton" type="button" ng-click="editTask(todo);"> Edit </button>
-          <button class="taskCardButton" type="button" ng-click="deleteThis(todo);"> Done </button>
+          <button class="taskCardButton" type="button" ng-click="toDoService.reverseStatusChange(todo);"> <== </button>
+          <button class="taskCardButton" type="button"> UP </button>
+          <button class="taskCardButton" type="button"> DOWN </button>
+          <button class="taskCardButton" type="button" ng-click="deleteThis(todo);"> ==> </button>
         </div>
       </div>
   </div>
