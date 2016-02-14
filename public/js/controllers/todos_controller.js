@@ -18,6 +18,13 @@ angular.module('myApp')
       });
   };
 
+  $scope.changeStatusRight = function ( task ) {
+    toDoService.changeStatus( task )
+      .success( function ( res ) {
+        console.log(res);
+      })
+  }
+
   $scope.deleteThis=function(this_task){
     toDoService.deleteToDo( this_task)
       .success( function (res){
