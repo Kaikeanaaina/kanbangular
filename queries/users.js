@@ -9,7 +9,6 @@ var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 
 var auth = function(req, res, next){
-  console.log('inside auth');
   if (!req.isAuthenticated()) {
     res.send(401);
   } else {
@@ -34,9 +33,6 @@ User.findAll()
 
 
 router.post('/register',function(req,res){
-
-  console.log('444444', req.body);
-
   User.findOne({
     where:{
       username: req.body.username
@@ -44,10 +40,8 @@ router.post('/register',function(req,res){
   })
   .then(function(data){
 
-    console.log('555555', data);
 
     if(data===null){
-      console.log('666666', ' CREATING USER');
     User.create(
       {
         username: req.body.username,
@@ -62,7 +56,6 @@ router.post('/register',function(req,res){
         //we want to go back to register
           //and let them know that username already exists
           //can't register that username
-      console.log('ERROR 66666 username already exists');
       res.json( data);
     }
   });

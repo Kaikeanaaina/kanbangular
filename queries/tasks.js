@@ -8,7 +8,6 @@ var bodyParser = require('body-parser');
 router.use(bodyParser.json());
 
 var auth = function(req, res, next){
-  console.log('inside auth');
   if (!req.isAuthenticated()) {
     res.send(401);
   } else {
@@ -18,7 +17,6 @@ var auth = function(req, res, next){
 
 
 router.get( '/', function ( req, res ) {
-  console.log('========', req.user );
   Task.findAll()
     .then( function ( tasks ) {
       res.json( tasks );
@@ -54,7 +52,7 @@ router.put( '/right', auth, function ( req, res ) {
       where : { id : req.body.id }
     })
   .then( function ( tasks ) {
-    res.json( tasks );
+    res.sendStatus( 200 );
   });
 });
 
