@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 var flash = require('connect-flash');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
+var bcrypt = require('bcrypt');
 
 var auth = function(req, res, next){
   if (!req.isAuthenticated()) {
@@ -19,18 +20,50 @@ var auth = function(req, res, next){
 router.use(bodyParser.json());
 app.use(flash());
 
+passport.serializeUser(function(user, done) {
+  done(null, user);
+});
+passport.deserializeUser(function(user, done) {
+  done(null, user);
+});
+
+passport.use(new LocalStrategy({
+    passReqToCallback: true
+  },
+  function(req, username, password, done){
+    var user = null;
+
+    User.findOne({
+      username : username
+    })
+    .then(function(data){
+      user = data;
+      if(!user){
+        return done(new Error('User not found.'), false);
+      }
+      bcrypt.compare(password, user.password, function(err, matches){
+        // if err...;
+
+        if(matches === false){
+          // this is when passwords dont match
+          return done(new Error('Invalid Password'));
+        }
+        if(matches === true){
+          return done(null, user);
+        }
+      });
+    });
+  }
+));
+
+
+
 router.get( '/', auth, function ( req, res ) {
 User.findAll()
   .then( function ( users ) {
     res.json( users );
   });
 });
-
-// app.get('/register', function(req,res){
-//   res.render('photos/register', {messages : req.flash('messages')});
-// });
-
-
 
 router.post('/register',function(req,res){
   User.findOne({
@@ -40,14 +73,15 @@ router.post('/register',function(req,res){
   })
   .then(function(data){
 
-
     if(data===null){
-    User.create(
-      {
-        username: req.body.username,
-        password: req.body.password
+      var salt = bcrypt.genSaltSync(10);
+      var hash = bcrypt.hashSync(req.body.password, salt);
+      User.create({
+        username : req.body.username,
+        password : hash
       })
       .then( function ( user ) {
+
         res.json( user );
       });
     }
@@ -56,8 +90,9 @@ router.post('/register',function(req,res){
         //we want to go back to register
           //and let them know that username already exists
           //can't register that username
-      res.json( data);
+      res.json( new Error('username already exists'));
     }
+
   });
 });
 
