@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 var flash = require('connect-flash');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
+var bcrypt = require('bcrypt');
 
 var auth = function(req, res, next){
   if (!req.isAuthenticated()) {
@@ -18,6 +19,40 @@ var auth = function(req, res, next){
 
 router.use(bodyParser.json());
 app.use(flash());
+
+passport.serializeUser(function(user, done) {
+  done(null, user);
+});
+passport.deserializeUser(function(user, done) {
+  done(null, user);
+});
+
+passport.use(new LocalStrategy({
+  passReqToCallback: true
+  },
+  function(req, username, password, done){
+    var user;
+    User.findOne({
+      username : username
+    })
+    .then(function(data){
+      user = data;
+      if(!user){
+        return done(null, false);
+      }
+      bcrypt.compare(password, user.password, function(err, res){
+        if(user.username === username && res === false){
+          return done(null, false);
+        }
+        if(user.username === username && res === true){
+          return done(null, user);
+        }
+      });
+    });
+  }
+));
+
+
 
 router.get( '/', auth, function ( req, res ) {
 User.findAll()
@@ -42,14 +77,23 @@ router.post('/register',function(req,res){
 
 
     if(data===null){
-    User.create(
-      {
-        username: req.body.username,
-        password: req.body.password
+
+
+      var salt = bcrypt.genSaltSync(10);
+      var hash = bcrypt.hashSync(req.body.password, salt);
+      User.create({
+        username : req.body.username,
+        password : hash
       })
       .then( function ( user ) {
+        if (err) { return next(err);}
         res.json( user );
       });
+
+
+
+
+
     }
     else{
       //if someone exists by that username
@@ -58,6 +102,10 @@ router.post('/register',function(req,res){
           //can't register that username
       res.json( data);
     }
+
+
+
+
   });
 });
 
