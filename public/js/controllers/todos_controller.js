@@ -28,6 +28,16 @@ angular.module('myApp')
       .success( function () {});
   };
 
+  $scope.priorityUp = function ( task ) {
+    toDoService.changePriorityUp( task )
+      .success( function () {});
+  };
+
+  $scope.priorityDown = function ( task ) {
+    toDoService.changePriorityDown( task )
+      .success( function () {});
+  };
+
   $scope.deleteThis=function(this_task){
     toDoService.deleteToDo( this_task)
       .success( function (res){
