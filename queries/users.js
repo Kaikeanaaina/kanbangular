@@ -65,12 +65,6 @@ User.findAll()
   });
 });
 
-// app.get('/register', function(req,res){
-//   res.render('photos/register', {messages : req.flash('messages')});
-// });
-
-
-
 router.post('/register',function(req,res){
   User.findOne({
     where:{
@@ -79,10 +73,7 @@ router.post('/register',function(req,res){
   })
   .then(function(data){
 
-
     if(data===null){
-
-
       var salt = bcrypt.genSaltSync(10);
       var hash = bcrypt.hashSync(req.body.password, salt);
       User.create({
@@ -93,11 +84,6 @@ router.post('/register',function(req,res){
 
         res.json( user );
       });
-
-
-
-
-
     }
     else{
       //if someone exists by that username
@@ -106,9 +92,6 @@ router.post('/register',function(req,res){
           //can't register that username
       res.json( new Error('username already exists'));
     }
-
-
-
 
   });
 });
