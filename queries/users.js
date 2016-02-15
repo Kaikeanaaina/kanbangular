@@ -28,23 +28,27 @@ passport.deserializeUser(function(user, done) {
 });
 
 passport.use(new LocalStrategy({
-  passReqToCallback: true
+    passReqToCallback: true
   },
   function(req, username, password, done){
-    var user;
+    var user = null;
+
     User.findOne({
       username : username
     })
     .then(function(data){
       user = data;
       if(!user){
-        return done(null, false);
+        return done(new Error('User not found.'), false);
       }
-      bcrypt.compare(password, user.password, function(err, res){
-        if(user.username === username && res === false){
-          return done(null, false);
+      bcrypt.compare(password, user.password, function(err, matches){
+        // if err...;
+
+        if(matches === false){
+          // this is when passwords dont match
+          return done(new Error('Invalid Password'));
         }
-        if(user.username === username && res === true){
+        if(matches === true){
           return done(null, user);
         }
       });
@@ -86,7 +90,7 @@ router.post('/register',function(req,res){
         password : hash
       })
       .then( function ( user ) {
-        if (err) { return next(err);}
+
         res.json( user );
       });
 
@@ -100,7 +104,7 @@ router.post('/register',function(req,res){
         //we want to go back to register
           //and let them know that username already exists
           //can't register that username
-      res.json( data);
+      res.json( new Error('username already exists'));
     }
 
 

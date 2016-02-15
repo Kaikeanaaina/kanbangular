@@ -33,28 +33,6 @@ app.use(flash());
 
 app.use(bodyParser.urlencoded({extended:true}));
 
-passport.use( new LocalStrategy(
-  function ( username, password, done ) {
-    db.User.findOne({
-      where : {
-        username : username,
-        password : password
-      }
-    })
-    .then(function ( user, err ) {
-      if( err ) {
-        throw err;
-      }
-      else if( user ) {
-        return done( null, user);
-      }
-      else {
-        return done( null, false );
-      }
-    });
-  }
-));
-
 app.get('*', function(req,res) {
   res.sendFile('/public/index.html', { root : __dirname });
 });
