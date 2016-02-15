@@ -74,6 +74,46 @@ router.put( '/left', auth, function ( req, res ) {
   });
 });
 
+router.put( '/up', auth, function ( req, res ) {
+  if( req.body.priority === 'LOW' ) {
+    req.body.priority = 'MEDIUM';
+  } else if( req.body.priority === 'MEDIUM' ) {
+    req.body.priority = 'HIGH';
+  } else if( req.body.priority === 'HIGH' ) {
+    req.body.priority = 'BLOCKER';
+  }
+  Task.update(
+  {
+    priority : req.body.priority
+  },
+  {
+    where : { id : req.body.id }
+  })
+  .then( function (tasks ) {
+    res.sendStatus( 200 );
+  });
+});
+
+router.put( '/down', auth, function ( req, res ) {
+  if( req.body.priority === 'BLOCKER' ) {
+    req.body.priority = 'HIGH';
+  } else if( req.body.priority === 'HIGH' ) {
+    req.body.priority = 'MEDIUM';
+  } else if( req.body.priority === 'MEDIUM' ) {
+    req.body.priority = 'LOW';
+  }
+  Task.update(
+  {
+    priority : req.body.priority
+  },
+  {
+    where : { id : req.body.id }
+  })
+  .then( function (tasks ) {
+    res.sendStatus( 200 );
+  });
+});
+
 router.delete('/:id', auth, function( req , res){
   Task.findById(req.params.id)
   .then(function(data){
