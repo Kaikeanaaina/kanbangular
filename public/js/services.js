@@ -51,6 +51,41 @@ angular.module('myApp')
       return $http.put( '/tasks/left', updatedCard );
     };
 
+    this.changePriorityUp = function ( task ) {
+      var updatedCard =
+      {
+        id : task.id,
+        priority : task.priority
+      };
+
+      if( task.priority === 'LOW' ) {
+        task.priority = 'MEDIUM';
+      } else if( task.priority === 'MEDIUM' ) {
+        task.priority = 'HIGH';
+      } else if( task.priority === 'HIGH' ) {
+        task.priority = 'BLOCKER';
+      }
+      return $http.put( 'tasks/up', updatedCard );
+    };
+
+    this.changePriorityDown = function ( task ) {
+      var updatedCard =
+      {
+        id : task.id,
+        priority : task.priority
+      };
+
+      if( task.priority === 'BLOCKER' ) {
+        task.priority = 'HIGH';
+      } else if( task.priority === 'HIGH' ) {
+        task.priority = 'MEDIUM';
+      } else if( task.priority === 'MEDIUM' ) {
+        task.priority = 'LOW';
+      }
+      return $http.put( 'tasks/down', updatedCard );
+    };
+
+
     this.registerUser = function( user ){
       var new_user ={
         username: user.username,
