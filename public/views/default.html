@@ -13,9 +13,9 @@
       <label for="new_task_priority">Priority</label>
       <select id="new_task_priority" ng-model='new_todo.prioritySelection'>
         <option value="BLOCKER">BLOCKER</option>
-        <option value="High">High</option>
-        <option value="medium">medium</option>
-        <option value="low">low</option>
+        <option value="HIGH">HIGH</option>
+        <option value="MEDIUM">MEDIUM</option>
+        <option value="LOW">LOW</option>
       </select>
     </div>
 
@@ -44,9 +44,9 @@
       <label for="new_task_priority">Priority</label>
       <select id="new_task_priority" ng-model='new_todo.prioritySelection'>
         <option value="BLOCK">BLOCK</option>
-        <option value="High">High</option>
-        <option value="medium">medium</option>
-        <option value="low">low</option>
+        <option value="HIGH">HIGH</option>
+        <option value="MEDIUM">MEDIUM</option>
+        <option value="LOW">LOW</option>
       </select>
     </div>
 
@@ -74,7 +74,7 @@
         <h4 class="todo_created_By">Created By: {{task.created_by}}</h4>
         <h4 class="todo_assigned_To">Assigned To: {{task.assigned_to}}</h4>
         <div class="buttonBar">
-          <button class="taskCardButton" type="button" ng-click="deleteThis(todo);"> REMOVE </button>
+          <button class="taskCardButton" type="button" ng-click="deleteThis(task);"> REMOVE </button>
           <button class="taskCardButton" type="button" ng-click="priorityUp(task)"> UP </button>
           <button class="taskCardButton" type="button" ng-click="priorityDown(task)"> DOWN </button>
           <button class="taskCardButton" type="button" ng-click="changeStatusRight(task)"> BEGIN </button>
@@ -111,7 +111,7 @@
           <button class="taskCardButton" type="button" ng-click="changeStatusLeft(task)"> INCOMPLETE </button>
           <button class="taskCardButton" type="button" ng-click="priorityUp(task)"> UP </button>
           <button class="taskCardButton" type="button" ng-click="priorityDown(task)"> DOWN </button>
-          <button class="taskCardButton" type="button" ng-click="deleteThis(todo);"> FINISHED </button>
+          <button class="taskCardButton" type="button" ng-click="deleteThis(task);"> FINISHED </button>
         </div>
       </div>
   </div>
