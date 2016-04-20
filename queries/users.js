@@ -32,23 +32,28 @@ passport.use(new LocalStrategy({
   },
   function(req, username, password, done){
     var user = null;
+    console.log('1111111');
 
     User.findOne({
       username : username
     })
     .then(function(data){
+      console.log('222222');
       user = data;
       if(!user){
+        console.log('333333', 'there are no user found');
         return done(new Error('User not found.'), false);
       }
       bcrypt.compare(password, user.password, function(err, matches){
         // if err...;
-
+        console.log('444444', 'comparing');
         if(matches === false){
+          console.log('555555', 'password did not match');
           // this is when passwords dont match
           return done(new Error('Invalid Password'));
         }
         if(matches === true){
+          console.log('666666','password matched');
           return done(null, user);
         }
       });

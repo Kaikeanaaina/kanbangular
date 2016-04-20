@@ -2,32 +2,31 @@
 <div ng-hide="myValue" class="inputBar">
   <div class="createNewTask">
     <fieldset>
-    <h3>Create New Task</h3>
+      <h3>Create New Task</h3>
 
-    <div>
-      <label for="new_task_title">Title</label>
-      <input id="new_task_title" type="text" ng-model='new_todo.title'>
-    </div>
+      <div>
+        <label for="new_task_title">Title</label>
+        <input id="new_task_title" type="text" ng-model='new_todo.title'>
+      </div>
 
-    <div>
-      <label for="new_task_priority">Priority</label>
-      <select id="new_task_priority" ng-model='new_todo.prioritySelection'>
-        <option value="BLOCKER">BLOCKER</option>
-        <option value="HIGH">HIGH</option>
-        <option value="MEDIUM">MEDIUM</option>
-        <option value="LOW">LOW</option>
-      </select>
-    </div>
+      <div>
+        <label for="new_task_priority">Priority</label>
+        <select id="new_task_priority" ng-model='new_todo.prioritySelection'>
+          <option value="BLOCKER">BLOCKER</option>
+          <option value="HIGH">HIGH</option>
+          <option value="MEDIUM">MEDIUM</option>
+          <option value="LOW">LOW</option>
+        </select>
+      </div>
 
-    <div>
-      <label for="new_task_assigned">Assigned To</label>
-      <input id="new_task_assigned" type="text" ng-model='new_todo.assignedTo'>
-    </div>
+      <div>
+        <label for="new_task_assigned">Assigned To</label>
+        <input id="new_task_assigned" type="text" ng-model='new_todo.assignedTo'>
+      </div>
 
-    <div class="commit">
-      <button type='button' ng-click='postTodo(new_todo); new_todo = null'>Add Task</button>
-    </div>
-
+      <div class="commit">
+        <button type='button' ng-click='postTodo(new_todo); new_todo = null'>Add Task</button>
+      </div>
     </fieldset>
   </div>
 
@@ -75,8 +74,6 @@
         <h4 class="todo_assigned_To">Assigned To: {{task.assigned_to}}</h4>
         <div class="buttonBar">
           <button class="taskCardButton" type="button" ng-click="deleteThis(task);"> REMOVE </button>
-          <button class="taskCardButton" type="button" ng-click="priorityUp(task)"> UP </button>
-          <button class="taskCardButton" type="button" ng-click="priorityDown(task)"> DOWN </button>
           <button class="taskCardButton" type="button" ng-click="changeStatusRight(task)"> BEGIN </button>
         </div>
       </div>
@@ -92,8 +89,6 @@
         <h4 class="todo_assigned_To">Assigned To: {{task.assigned_to}}</h4>
         <div class="buttonBar">
           <button class="taskCardButton" type="button" ng-click="changeStatusLeft(task)"> QUEUE </button>
-          <button class="taskCardButton" type="button" ng-click="priorityUp(task)"> UP </button>
-          <button class="taskCardButton" type="button" ng-click="priorityDown(task)"> DOWN </button>
           <button class="taskCardButton" type="button" ng-click="changeStatusRight(task)"> COMPLETED </button>
         </div>
       </div>
@@ -109,8 +104,6 @@
         <h4 class="todo_assigned_To">Assigned To: {{task.assigned_to}}</h4>
         <div class="buttonBar">
           <button class="taskCardButton" type="button" ng-click="changeStatusLeft(task)"> INCOMPLETE </button>
-          <button class="taskCardButton" type="button" ng-click="priorityUp(task)"> UP </button>
-          <button class="taskCardButton" type="button" ng-click="priorityDown(task)"> DOWN </button>
           <button class="taskCardButton" type="button" ng-click="deleteThis(task);"> FINISHED </button>
         </div>
       </div>
